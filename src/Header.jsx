@@ -1,9 +1,9 @@
 import React from 'react'
 
-import List from '@mui/material/List'
+import Typography from '@mui/material/Typography'
 
 function Header () {
-  return <List></List>
+  return <Typography>Find </Typography>
 }
 
 export default Header

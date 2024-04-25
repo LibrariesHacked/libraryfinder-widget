@@ -10,8 +10,10 @@ import Search from './Search'
 import LibraryList from './LibraryList'
 import Footer from './Footer'
 
+import '@fontsource/lexend'
+
 const theme = createTheme({
-  typography: { fontFamily: ['"Lexend Exa"', 'sans-serif'].join(',') }
+  typography: { fontFamily: ['Lexend', 'sans-serif'].join(',') }
 })
 
 function App () {
