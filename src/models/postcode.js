@@ -11,10 +11,10 @@ class Postcode {
 
   static async search (searchTerm) {
     const response = await fetch(
-      `https://api-geography.librarydata.uk/rest/postcodes/${searchTerm}`
+      `https://api-geography.librarydata.uk/rest/postcodes/search/${searchTerm}`
     )
     const data = await response.json()
-    return data.results.map(Postcode.fromJson)
+    return data.map(Postcode.fromJson)
   }
 
   static async findByCode (code) {
