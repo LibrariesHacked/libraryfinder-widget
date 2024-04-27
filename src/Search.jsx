@@ -18,14 +18,8 @@ function Search () {
   return (
     <Autocomplete
       id='autocomplete_postcode'
-      getOptionLabel={option =>
-        typeof option === 'string' ? option : option.description
-      }
-      filterOptions={x => x}
       options={options}
       autoComplete
-      includeInputInList
-      filterSelectedOptions
       value={selectedPostcode}
       noOptionsText='No locations'
       onInputChange={(event, newInputValue) => {
