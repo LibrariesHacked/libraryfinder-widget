@@ -12,18 +12,23 @@ import Footer from './Footer'
 
 import '@fontsource/lexend'
 
+import useLibraries from './hooks/useLibraries'
+
 const theme = createTheme({
   typography: { fontFamily: ['Lexend', 'sans-serif'].join(',') }
 })
 
 function App () {
+  const { loadingLibraries, loadingLibrary, libraries, getLibrary } =
+    useLibraries()
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Stack spacing={2}>
         <Header />
         <Search />
-        <LibraryList />
+        <LibraryList libraries={libraries} getLibrary={getLibrary} />
         <Footer />
       </Stack>
     </ThemeProvider>
