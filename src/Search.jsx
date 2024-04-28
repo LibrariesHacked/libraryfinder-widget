@@ -10,19 +10,25 @@ function Search () {
   const { loading, results, runSearch } = usePostcodeSearch()
 
   const [selectedPostcode, setSelectedPostcode] = useState(null)
+  const [inputValue, setInputValue] = useState('')
 
   const options = results.map(postcode => ({
-    label: postcode.postcode
+    label: postcode.postcode,
+    location: [postcode.longitude, postcode.latitude]
   }))
+
+  const loadingProgress = <CircularProgress color='inherit' size={20} />
 
   return (
     <Autocomplete
       id='autocomplete_postcode'
       options={options}
-      autoComplete
+      freeSolo
       value={selectedPostcode}
+      inputValue={inputValue}
       noOptionsText='No locations'
       onInputChange={(event, newInputValue) => {
+        setInputValue(newInputValue)
         runSearch(newInputValue)
       }}
       onChange={(event, newValue) => {
@@ -37,9 +43,7 @@ function Search () {
             ...params.InputProps,
             endAdornment: (
               <React.Fragment>
-                {loading ? (
-                  <CircularProgress color='inherit' size={20} />
-                ) : null}
+                {loading && loadingProgress}
                 {params.InputProps.endAdornment}
               </React.Fragment>
             )
