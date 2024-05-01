@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import Autocomplete from '@mui/material/Autocomplete'
 import CircularProgress from '@mui/material/CircularProgress'
@@ -6,15 +7,18 @@ import TextField from '@mui/material/TextField'
 
 import usePostcodeSearch from './hooks/usePostcodeSearch'
 
-function Search () {
-  const { loading, results, runSearch } = usePostcodeSearch()
+const Search = props => {
+  const { refreshLibraryList } = props
+
+  const { loading, results, runPostcodeSearch } = usePostcodeSearch()
 
   const [selectedPostcode, setSelectedPostcode] = useState(null)
   const [inputValue, setInputValue] = useState('')
 
   const options = results.map(postcode => ({
     label: postcode.postcode,
-    location: [postcode.longitude, postcode.latitude]
+    longitude: postcode.longitude,
+    latitude: postcode.latitude
   }))
 
   const loadingProgress = <CircularProgress color='inherit' size={20} />
@@ -29,10 +33,11 @@ function Search () {
       noOptionsText='No locations'
       onInputChange={(event, newInputValue) => {
         setInputValue(newInputValue)
-        runSearch(newInputValue)
+        runPostcodeSearch(newInputValue)
       }}
       onChange={(event, newValue) => {
         setSelectedPostcode(newValue)
+        refreshLibraryList(newValue.longitude, newValue.latitude)
       }}
       renderInput={params => (
         <TextField
@@ -52,6 +57,10 @@ function Search () {
       )}
     />
   )
+}
+
+Search.propTypes = {
+  refreshLibraryList: PropTypes.func.isRequired
 }
 
 export default Search

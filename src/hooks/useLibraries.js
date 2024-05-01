@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 
 import Library from '../models/library'
 
+import { sortObjectsByNearestLocation } from '../utils/geo'
+
 const useLibraries = () => {
   const [loadingLibraries, setLoadingLibraries] = useState(false)
   const [libraries, setLibraries] = useState([])
@@ -28,11 +30,21 @@ const useLibraries = () => {
     setLibraries(updatedLibraries)
   }
 
+  const sortLibrariesByLocation = (longitude, latitude) => {
+    const sortedLibraries = sortObjectsByNearestLocation(
+      libraries,
+      longitude,
+      latitude
+    )
+    setLibraries(sortedLibraries)
+  }
+
   return {
     loadingLibraries,
     loadingLibrary,
     libraries,
-    getLibrary
+    getLibrary,
+    sortLibrariesByLocation
   }
 }
 

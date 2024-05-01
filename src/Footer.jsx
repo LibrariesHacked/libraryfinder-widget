@@ -1,9 +1,9 @@
 import React from 'react'
 
-import List from '@mui/material/List'
+import Typography from '@mui/material/Typography'
 
 function Footer () {
-  return <List></List>
+  return <Typography>This is the footer</Typography>
 }
 
 export default Footer

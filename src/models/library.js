@@ -83,6 +83,51 @@ class Library {
     this.unstaffedSundayTime = unstaffedSundayTime
   }
 
+  static fromMinifiedArray (array) {
+    return new Library(
+      array[0],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      array[3],
+      array[2],
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    )
+  }
+
   static fromJson (json) {
     return new Library(
       json.name,
@@ -133,8 +178,10 @@ class Library {
       'https://raw.githubusercontent.com/LibrariesHacked/libraryon-libraryfinder-widget/main/data/minified-libraryon.json'
     )
     const data = await response.json()
-    return data.map(Library.fromJson)
+    // The data is an array of arrays. Convert to a set of basic library objects
+    const libraries = data.map(library => Library.fromMinifiedArray(library))
+    return libraries
   }
 }
 
-module.exports = Library
+export default Library

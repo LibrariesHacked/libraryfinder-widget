@@ -22,14 +22,14 @@ const usePostcodeSearch = () => {
     }
   }, [searchTerm])
 
-  const runSearch = text => {
+  const runPostcodeSearch = text => {
     setSearchTerm(text)
   }
 
   return {
     loading,
     results,
-    runSearch
+    runPostcodeSearch
   }
 }
 
