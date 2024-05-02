@@ -44,14 +44,16 @@ function App () {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'stretch',
-          height: '600px',
-          width: '400px'
+          height: '100vh',
+          width: '100%',
+          padding: theme => theme.spacing(2),
+          border: theme => `1px solid ${theme.palette.divider}`
         }}
       >
         <Box>
           <Header />
-          {(loadingLibraries || loadingLibrary) && <LinearProgress />}
         </Box>
+        <Box>{(loadingLibraries || loadingLibrary) && <LinearProgress />}</Box>
         <Box>
           <Search refreshLibraryList={refreshLibraryList} />
         </Box>
@@ -62,7 +64,11 @@ function App () {
             firstSearchCompleted={firstSearchCompleted}
           />
         </Box>
-        <Box>
+        <Box
+          sx={{
+            padding: theme => theme.spacing(1)
+          }}
+        >
           <Footer />
         </Box>
       </Box>
