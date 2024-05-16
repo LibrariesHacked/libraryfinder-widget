@@ -16,7 +16,24 @@ import '@fontsource/lexend'
 import useLibraries from './hooks/useLibraries'
 
 const theme = createTheme({
-  typography: { fontFamily: ['Lexend', 'sans-serif'].join(',') }
+  typography: { fontFamily: ['Lexend', 'sans-serif'].join(',') },
+  palette: {
+    primary: {
+      main: '#3f51b5'
+    },
+    secondary: {
+      main: '#f50057'
+    }
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none'
+        }
+      }
+    }
+  }
 })
 
 function App () {
