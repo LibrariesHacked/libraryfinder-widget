@@ -5,44 +5,44 @@ import Autocomplete from '@mui/material/Autocomplete'
 import CircularProgress from '@mui/material/CircularProgress'
 import TextField from '@mui/material/TextField'
 
-import usePostcodeSearch from './hooks/usePostcodeSearch'
+import usePlaceNameSearch from './hooks/usePlaceNameSearch'
 
 const Search = props => {
   const { refreshLibraryList } = props
 
-  const { loading, results, runPostcodeSearch } = usePostcodeSearch()
+  const { loading, results, runPlaceNameSearch } = usePlaceNameSearch()
 
-  const [selectedPostcode, setSelectedPostcode] = useState(null)
+  const [selectedPlaceName, setSelectedPlaceName] = useState(null)
   const [inputValue, setInputValue] = useState('')
 
-  const options = results.map(postcode => ({
-    label: postcode.postcode,
-    longitude: postcode.longitude,
-    latitude: postcode.latitude
+  const options = results.map(placeName => ({
+    label: placeName.name1,
+    longitude: placeName.longitude,
+    latitude: placeName.latitude
   }))
 
   const loadingProgress = <CircularProgress color='inherit' size={20} />
 
   return (
     <Autocomplete
-      id='autocomplete_postcode'
+      id='autocomplete_placename'
       options={options}
       freeSolo
-      value={selectedPostcode}
+      value={selectedPlaceName}
       inputValue={inputValue}
       noOptionsText='No locations'
       onInputChange={(event, newInputValue) => {
         setInputValue(newInputValue)
-        runPostcodeSearch(newInputValue)
+        runPlaceNameSearch(newInputValue)
       }}
       onChange={(event, newValue) => {
-        setSelectedPostcode(newValue)
+        setSelectedPlaceName(newValue)
         refreshLibraryList(newValue.longitude, newValue.latitude)
       }}
       renderInput={params => (
         <TextField
           {...params}
-          label='Search for a postcode'
+          label='Search for a place name'
           variant='outlined'
           InputProps={{
             ...params.InputProps,
