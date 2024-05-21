@@ -15,22 +15,19 @@ const Search = props => {
   const [selectedPlaceName, setSelectedPlaceName] = useState(null)
   const [inputValue, setInputValue] = useState('')
 
-  const options = results.map(placeName => ({
-    label: placeName.name1,
-    longitude: placeName.longitude,
-    latitude: placeName.latitude
-  }))
-
   const loadingProgress = <CircularProgress color='inherit' size={20} />
 
   return (
     <Autocomplete
       id='autocomplete_placename'
-      options={options}
+      options={results}
       freeSolo
       value={selectedPlaceName}
+      groupBy={option => option.localType}
       inputValue={inputValue}
       noOptionsText='No locations'
+      getOptionKey={option => results.indexOf(option)}
+      getOptionLabel={option => option.name1}
       onInputChange={(event, newInputValue) => {
         setInputValue(newInputValue)
         runPlaceNameSearch(newInputValue)
@@ -42,7 +39,7 @@ const Search = props => {
       renderInput={params => (
         <TextField
           {...params}
-          label='Search for a place name'
+          label='Search by place name or postcode'
           variant='outlined'
           InputProps={{
             ...params.InputProps,
