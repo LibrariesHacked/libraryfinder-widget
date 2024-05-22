@@ -45,7 +45,12 @@ const Search = props => {
             sx={{ marginLeft: theme => theme.spacing() }}
             color='secondary'
             size='small'
-            label={option.populatedPlace}
+            label={
+              option.populatedPlace ||
+              option.county ||
+              option.region ||
+              option.country
+            }
             variant='outlined'
           />
         </Box>

@@ -15,7 +15,7 @@ const LibraryListItem = props => {
       <ListItem
         secondaryAction={<Button endIcon={<AutoAwesomeIcon />}>Explore</Button>}
       >
-        <ListItemText>{library.name}</ListItemText>
+        <ListItemText primary={library.name} secondary={library.distance} />
       </ListItem>
       <Divider />
     </>
@@ -25,7 +25,8 @@ const LibraryListItem = props => {
 LibraryListItem.propTypes = {
   library: PropTypes.shape({
     id: PropTypes.number,
-    name: PropTypes.string
+    name: PropTypes.string,
+    distance: PropTypes.number
   }).isRequired
 }
 
