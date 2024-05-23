@@ -11,8 +11,11 @@ import usePlaceNameSearch from './hooks/usePlaceNameSearch'
 
 const LOCAL_TYPES = [
   { name: 'City', label: 'City' },
-  { name: 'Group Of Islands', label: 'Group Of Islands' },
+  { name: 'Village', label: 'Village' },
+  { name: 'Town', label: 'Town' },
   { name: 'Hamlet', label: 'Hamlet' },
+  { name: 'Other Settlement', label: 'Other Settlement' },
+  { name: 'Group Of Islands', label: 'Group Of Islands' },
   {
     name: 'Higher or University Education',
     label: 'Higher or University Education'
@@ -20,15 +23,12 @@ const LOCAL_TYPES = [
   { name: 'Hospital', label: 'Hospital' },
   { name: 'Inland Water', label: 'Inland Water' },
   { name: 'Island', label: 'Island' },
-  { name: 'Named Road', label: 'Named Road' },
-  { name: 'Other Settlement', label: 'Other Settlement' },
   { name: 'Postcode', label: 'Postcode' },
   { name: 'Railway Station', label: 'Railway Station' },
   { name: 'Suburban Area', label: 'Suburban Area' },
-  { name: 'Town', label: 'Town' },
   { name: 'Valley', label: 'Valley' },
-  { name: 'Village', label: 'Village' },
-  { name: 'Woodland Or Forest', label: 'Woodland Or Forest' }
+  { name: 'Woodland Or Forest', label: 'Woodland Or Forest' },
+  { name: 'Named Road', label: 'Named Road' }
 ]
 
 const Search = props => {
@@ -43,7 +43,10 @@ const Search = props => {
 
   return (
     <Autocomplete
-      options={results.sort((a, b) => a.localType.localeCompare(b.localType))}
+      options={results.sort(
+        (a, b) =>
+          LOCAL_TYPES.indexOf(a.localType) - LOCAL_TYPES.indexOf(b.localType)
+      )}
       renderInput={params => (
         <TextField
           {...params}
