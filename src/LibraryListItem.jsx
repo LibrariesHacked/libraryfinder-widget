@@ -13,7 +13,15 @@ const LibraryListItem = props => {
   return (
     <>
       <ListItem
-        secondaryAction={<Button endIcon={<AutoAwesomeIcon />}>Explore</Button>}
+        secondaryAction={
+          <Button
+            endIcon={<AutoAwesomeIcon />}
+            target='_blank'
+            href='http://www.google.com/'
+          >
+            Explore
+          </Button>
+        }
       >
         <ListItemText primary={library.name} secondary={library.distance} />
       </ListItem>

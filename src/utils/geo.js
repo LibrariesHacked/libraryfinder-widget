@@ -1,7 +1,14 @@
-/*
-  This file contains utility functions for geolocation.
-*/
+// Description: This file contains the utility functions for geolocation.
 
+/**
+ * Calculate the distance between two points on the Earth's surface.
+ * @param {number} longitude1 - The longitude of the first point.
+ * @param {number} latitude1 - The latitude of the first point.
+ * @param {number} longitude2 - The longitude of the second point.
+ * @param {number} latitude2 - The latitude of the second point.
+ * @returns {number} The distance between the two points in metres.
+ * @see {@link https://en.wikipedia.org/wiki/Haversine_formula}
+ */
 export const calculateDistanceBetweenPoints = (
   longitude1,
   latitude1,
@@ -22,6 +29,13 @@ export const calculateDistanceBetweenPoints = (
   return R * c // in metres
 }
 
+/**
+ * Sort an array of objects by their distance from a given location.
+ * @param {Array<Object>} objects - The array of objects to sort.
+ * @param {number} longitude - The longitude of the location.
+ * @param {number} latitude - The latitude of the location.
+ * @returns {Array<Object>} The sorted array of objects.
+ */
 export const sortObjectsByNearestLocation = (objects, longitude, latitude) => {
   // First assign the distance to each object
   objects.forEach(object => {
@@ -32,8 +46,5 @@ export const sortObjectsByNearestLocation = (objects, longitude, latitude) => {
       object.latitude
     )
   })
-
-  // Return a sorted clone of the array
-
   return [...objects].sort((a, b) => a.distance - b.distance)
 }
