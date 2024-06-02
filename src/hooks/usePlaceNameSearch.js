@@ -4,12 +4,13 @@ import PlaceName from '../models/placeName'
 
 const usePlaceNameSearch = () => {
   const [searchTerm, setSearchTerm] = useState('')
+  const [localTypes, setLocalTypes] = useState([])
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const fetchResults = async () => {
-      const results = await PlaceName.search(searchTerm)
+      const results = await PlaceName.search(searchTerm, localTypes)
       setResults(results)
     }
 
@@ -20,10 +21,11 @@ const usePlaceNameSearch = () => {
     } else {
       setResults([])
     }
-  }, [searchTerm])
+  }, [searchTerm, localTypes])
 
-  const runPlaceNameSearch = text => {
+  const runPlaceNameSearch = (text, types) => {
     setSearchTerm(text)
+    setLocalTypes(types)
   }
 
   return {

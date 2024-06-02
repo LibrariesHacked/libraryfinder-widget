@@ -48,3 +48,13 @@ export const sortObjectsByNearestLocation = (objects, longitude, latitude) => {
   })
   return [...objects].sort((a, b) => a.distance - b.distance)
 }
+
+/**
+ * Convert metres to miles.
+ * @param {number} metres - The distance in metres.
+ * @param {number} precision - The number of decimal places to round to.
+ * @returns {number} The distance in miles.
+ */
+export const metresToMiles = (metres, precision = 2) => {
+  return (metres / 1609.344).toFixed(precision)
+}

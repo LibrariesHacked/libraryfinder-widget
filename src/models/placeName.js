@@ -59,10 +59,12 @@ class PlaceName {
     )
   }
 
-  static async search (searchTerm) {
-    const response = await fetch(
-      `https://api-geography.librarydata.uk/rest/placenames/search/${searchTerm}`
-    )
+  static async search (searchTerm, localTypes) {
+    let url = `https://api-geography.librarydata.uk/rest/placenames/search/${searchTerm}`
+    if (localTypes && localTypes.length > 0) {
+      url += `?types[]=${localTypes.join('&types[]=')}`
+    }
+    const response = await fetch(url)
     const data = await response.json()
     return data.map(PlaceName.fromJson)
   }

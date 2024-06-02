@@ -4,8 +4,8 @@ import Typography from '@mui/material/Typography'
 
 function Header () {
   return (
-    <Typography variant='h3' component='h1' gutterBottom>
-      Find your local public library
+    <Typography variant='h4' component='h1' gutterBottom>
+      Find your library
     </Typography>
   )
 }

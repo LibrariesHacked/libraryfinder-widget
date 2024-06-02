@@ -43,14 +43,14 @@ const Search = props => {
 
   return (
     <Autocomplete
-      options={results.sort(
-        (a, b) =>
-          LOCAL_TYPES.indexOf(a.localType) - LOCAL_TYPES.indexOf(b.localType)
-      )}
+      options={results.sort((a, b) => {
+        const indexArray = LOCAL_TYPES.map(t => t.label)
+        return indexArray.indexOf(a.localType) - indexArray.indexOf(b.localType)
+      })}
       renderInput={params => (
         <TextField
           {...params}
-          label='Search by place name or postcode'
+          label='Search by place or postcode'
           variant='outlined'
           InputProps={{
             ...params.InputProps,
@@ -95,7 +95,10 @@ const Search = props => {
       }}
       onInputChange={(event, newInputValue) => {
         setInputValue(newInputValue)
-        runPlaceNameSearch(newInputValue)
+        runPlaceNameSearch(
+          newInputValue,
+          LOCAL_TYPES.map(t => t.name)
+        )
       }}
       value={selectedPlaceName}
     />
