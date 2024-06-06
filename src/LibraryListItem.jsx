@@ -7,6 +7,9 @@ import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesomeRounded'
+import RouteIcon from '@mui/icons-material/RouteRounded'
+
+import { metresToMiles } from './utils/geo'
 
 const LibraryListItem = props => {
   const { library } = props
@@ -23,7 +26,21 @@ const LibraryListItem = props => {
           </Button>
         }
       >
-        <ListItemText primary={library.name} secondary={library.distance} />
+        <ListItemText
+          primary={library.name}
+          secondary={
+            <>
+              {`${metresToMiles(library.distance, 1)} miles`}
+              <RouteIcon
+                fontSize='small'
+                sx={{
+                  marginLeft: theme => theme.spacing(),
+                  verticalAlign: 'top'
+                }}
+              />
+            </>
+          }
+        />
       </ListItem>
       <Divider />
     </>
