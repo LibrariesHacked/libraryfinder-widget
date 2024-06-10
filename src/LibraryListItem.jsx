@@ -20,7 +20,7 @@ const LibraryListItem = props => {
           <Button
             endIcon={<AutoAwesomeIcon />}
             target='_blank'
-            href='http://www.google.com/'
+            href={`https://libraryon.org/library/service/library?id=${library.libraryId}`}
           >
             Explore
           </Button>
@@ -49,7 +49,7 @@ const LibraryListItem = props => {
 
 LibraryListItem.propTypes = {
   library: PropTypes.shape({
-    id: PropTypes.number,
+    libraryId: PropTypes.number,
     name: PropTypes.string,
     distance: PropTypes.number
   }).isRequired

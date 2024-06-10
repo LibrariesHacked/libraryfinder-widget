@@ -85,6 +85,9 @@ class Library {
 
   static fromMinifiedArray (array) {
     return new Library(
+      array[1],
+      null,
+      null,
       array[0],
       null,
       null,
@@ -94,11 +97,8 @@ class Library {
       null,
       null,
       null,
-      null,
-      null,
-      null,
+      array[4],
       array[3],
-      array[2],
       null,
       null,
       null,

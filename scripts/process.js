@@ -8,9 +8,15 @@ const libraryonArray = JSON.parse(libraryOnData)
 const processedArray = libraryonArray.libraries.map(item => {
   const {
     name,
-    data_entry: { service_id: serviceId, longitude, latitude }
+    data_entry: { library_id: id, service_id: serviceId, longitude, latitude }
   } = item
-  return [name, serviceId, longitude, latitude]
+  return [
+    id,
+    name,
+    serviceId,
+    Math.round(longitude * 1e4) / 1e4,
+    Math.round(latitude * 1e4) / 1e4
+  ]
 })
 
 const processedData = JSON.stringify(processedArray)
