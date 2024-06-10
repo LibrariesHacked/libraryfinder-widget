@@ -58,35 +58,45 @@ function App () {
       <CssBaseline />
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'stretch',
-          height: '100vh',
           width: '100%',
-          padding: theme => theme.spacing(2),
-          border: theme => `1px solid ${theme.palette.divider}`
+          height: '100vh',
+          padding: theme => theme.spacing(1)
         }}
       >
-        <Box>
-          <Header />
-        </Box>
-        <Box>{(loadingLibraries || loadingLibrary) && <LinearProgress />}</Box>
-        <Box>
-          <Search refreshLibraryList={refreshLibraryList} />
-        </Box>
-        <Box sx={{ flexGrow: 1, minHeight: 0 }}>
-          <LibraryList
-            libraries={libraries}
-            getLibrary={getLibrary}
-            firstSearchCompleted={firstSearchCompleted}
-          />
-        </Box>
         <Box
           sx={{
-            padding: theme => theme.spacing(1)
+            height: 'calc(100% - 8px)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'stretch',
+            padding: theme => theme.spacing(1),
+            border: theme => `1px solid ${theme.palette.divider}`,
+            borderRadius: theme => theme.shape.borderRadius
           }}
         >
-          <Footer />
+          <Box>
+            <Header />
+          </Box>
+          <Box>
+            {(loadingLibraries || loadingLibrary) && <LinearProgress />}
+          </Box>
+          <Box>
+            <Search refreshLibraryList={refreshLibraryList} />
+          </Box>
+          <Box sx={{ flexGrow: 1, minHeight: 0 }}>
+            <LibraryList
+              libraries={libraries}
+              getLibrary={getLibrary}
+              firstSearchCompleted={firstSearchCompleted}
+            />
+          </Box>
+          <Box
+            sx={{
+              padding: theme => theme.spacing(1)
+            }}
+          >
+            <Footer />
+          </Box>
         </Box>
       </Box>
     </ThemeProvider>
