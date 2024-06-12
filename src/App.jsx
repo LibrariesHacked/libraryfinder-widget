@@ -36,7 +36,8 @@ const theme = createTheme({
   }
 })
 
-function App () {
+const App = props => {
+  const { width, height, primary, secondary } = props
   const [firstSearchCompleted, setFirstSearchCompleted] = useState(false)
   const {
     loadingLibraries,
@@ -58,8 +59,8 @@ function App () {
       <CssBaseline />
       <Box
         sx={{
-          width: '100%',
-          height: '100vh',
+          width,
+          height,
           padding: theme => theme.spacing(1)
         }}
       >
