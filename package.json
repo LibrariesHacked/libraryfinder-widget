@@ -14,7 +14,6 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "@fontsource/lexend": "^5.0.20",
     "@mui/icons-material": "^6.0.0-alpha.5",
     "@mui/material": "^6.0.0-alpha.1",
     "react": "^18.3.1",
@@ -33,6 +32,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "prop-types": "^15.8.1",
-    "vite": "^5.2.13"
+    "vite": "^5.2.13",
+    "webfontloader": "^1.6.28"
   }
 }

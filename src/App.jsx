@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
@@ -11,7 +11,7 @@ import LibraryList from './LibraryList'
 import LinearProgress from '@mui/material/LinearProgress'
 import Footer from './Footer'
 
-import '@fontsource/lexend'
+import WebFont from 'webfontloader'
 
 import useLibraries from './hooks/useLibraries'
 
@@ -53,6 +53,14 @@ const App = props => {
     }
     sortLibrariesByLocation(longitude, latitude)
   }
+
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ['Lexend:400,500,600,700']
+      }
+    })
+  }, [])
 
   return (
     <ThemeProvider theme={theme}>
