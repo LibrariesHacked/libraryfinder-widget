@@ -178,7 +178,6 @@ class Library {
       'https://raw.githubusercontent.com/LibrariesHacked/libraryon-libraryfinder-widget/main/data/minified-libraryon.json'
     )
     const data = await response.json()
-    // The data is an array of arrays. Convert to a set of basic library objects
     const libraries = data.map(library => Library.fromMinifiedArray(library))
     return libraries
   }
