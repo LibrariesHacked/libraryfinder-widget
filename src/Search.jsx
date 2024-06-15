@@ -55,10 +55,10 @@ const Search = props => {
           InputProps={{
             ...params.InputProps,
             endAdornment: (
-              <React.Fragment>
+              <>
                 {loading && loadingProgress}
                 {params.InputProps.endAdornment}
-              </React.Fragment>
+              </>
             )
           }}
         />
