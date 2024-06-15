@@ -17,7 +17,7 @@ const LibraryListItem = props => {
       <ListItem disablePadding>
         <ListItemButton
           component='a'
-          href={`https://libraryon.org/library/service/library?id=${library.libraryId}`}
+          href={`https://libraryon.org/library/service/${library.name}?id=${library.libraryId}`}
           sx={{ width: '100%' }}
           target='_blank'
         >

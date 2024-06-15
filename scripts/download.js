@@ -1,25 +1,36 @@
 import { writeFile } from 'fs'
 import { get } from 'https'
 
-const url = 'https://libraryon.org/api/libraries'
-const filePath = './data/libraries.json'
+const librariesUrl = 'https://libraryon.org/api/libraries'
+const librariesFilePath = './data/libraries.json'
+const servicesUrl =
+  'https://api-geography.librarydata.uk/rest/libraryauthorities'
+const servicesFilePath = './data/services.json'
 
-get(url, response => {
-  let data = ''
+// Documentation for the LibaryOn API is https://libraryon.org/api-docs/v1
+// Library services available at https://api-geography.librarydata.uk/rest/libraryauthorities
 
-  response.on('data', chunk => {
-    data += chunk
-  })
+const downloadFile = (url, filePath) => {
+  get(url, response => {
+    let data = ''
 
-  response.on('end', () => {
-    writeFile(filePath, data, error => {
-      if (error) {
-        console.error('Error saving JSON file:', error)
-      } else {
-        console.log('JSON file saved successfully')
-      }
+    response.on('data', chunk => {
+      data += chunk
     })
+
+    response.on('end', () => {
+      writeFile(filePath, data, error => {
+        if (error) {
+          console.error('Error saving JSON file:', error)
+        } else {
+          console.log('JSON file saved successfully')
+        }
+      })
+    })
+  }).on('error', error => {
+    console.error('Error downloading JSON:', error)
   })
-}).on('error', error => {
-  console.error('Error downloading JSON:', error)
-})
+}
+
+downloadFile(librariesUrl, librariesFilePath)
+downloadFile(servicesUrl, servicesFilePath)
