@@ -24,6 +24,7 @@ class Library {
     yearOpened,
     serviceName,
     serviceId,
+    regionName,
     libraryUrl,
     openDays,
     staffedMondayTime,
@@ -65,6 +66,7 @@ class Library {
     this.yearOpened = yearOpened
     this.serviceName = serviceName
     this.serviceId = serviceId
+    this.regionName = regionName
     this.libraryUrl = libraryUrl
     this.openDays = openDays
     this.staffedMondayTime = staffedMondayTime
@@ -83,7 +85,7 @@ class Library {
     this.unstaffedSundayTime = unstaffedSundayTime
   }
 
-  static fromMinifiedArray (array) {
+  static fromMinifiedArray (array, services, regions) {
     return new Library(
       array[1],
       null,
@@ -107,8 +109,9 @@ class Library {
       null,
       null,
       null,
+      services[array[2]][0],
       null,
-      null,
+      regions[services[array[2]][1]],
       null,
       null,
       null,
@@ -154,6 +157,7 @@ class Library {
       json.year_opened,
       json.service_name,
       json.service_id,
+      json.region_name,
       json.library_url,
       json.open_days,
       json.staffed_monday_time,
@@ -174,11 +178,24 @@ class Library {
   }
 
   static async getAllLibraries () {
-    const response = await fetch(
-      'https://raw.githubusercontent.com/LibrariesHacked/libraryon-libraryfinder-widget/main/data/minified-libraryon.json'
+    const librariesData = fetch(
+      'https://raw.githubusercontent.com/LibrariesHacked/libraryon-libraryfinder-widget/1-make-the-build-available-on-github/data/libraries.min.json'
     )
-    const data = await response.json()
-    const libraries = data.map(library => Library.fromMinifiedArray(library))
+    const servicesData = fetch(
+      'https://raw.githubusercontent.com/LibrariesHacked/libraryon-libraryfinder-widget/1-make-the-build-available-on-github/data/services.min.json'
+    )
+    const regionsData = fetch(
+      'https://raw.githubusercontent.com/LibrariesHacked/libraryon-libraryfinder-widget/1-make-the-build-available-on-github/data/regions.min.json'
+    )
+    const [librariesResponse, servicesResponse, regionsResponse] =
+      await Promise.all([librariesData, servicesData, regionsData])
+
+    const serviceList = await servicesResponse.json()
+    const regionList = await regionsResponse.json()
+    const libraryList = await librariesResponse.json()
+    const libraries = libraryList.map(library =>
+      Library.fromMinifiedArray(library, serviceList, regionList)
+    )
     return libraries
   }
 }

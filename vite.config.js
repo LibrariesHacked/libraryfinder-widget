@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        entryFileNames: 'libraryon-libraryfinder-widget.js'
+        entryFileNames: 'libraryfinder-widget.js'
       }
     }
   }
