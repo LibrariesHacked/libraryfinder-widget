@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "vite build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "sitemap": "node ./src/sitemap.js",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "download": "node ./scripts/download.js",
@@ -18,8 +18,8 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "@mui/icons-material": "^6.0.0-alpha.5",
-    "@mui/material": "^6.0.0-alpha.1",
+    "@mui/icons-material": "^6.0.0-alpha.11",
+    "@mui/material": "^6.0.0-alpha.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

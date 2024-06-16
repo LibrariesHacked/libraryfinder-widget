@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
@@ -37,7 +38,7 @@ const theme = createTheme({
 })
 
 const App = props => {
-  const { width, height, primary, secondary } = props
+  const { width, height } = props
   const [firstSearchCompleted, setFirstSearchCompleted] = useState(false)
   const {
     loadingLibraries,
@@ -110,6 +111,16 @@ const App = props => {
       </Box>
     </ThemeProvider>
   )
+}
+
+App.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string
+}
+
+App.defaultProps = {
+  width: '100%',
+  height: '100%'
 }
 
 export default App
