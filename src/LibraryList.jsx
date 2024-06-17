@@ -6,26 +6,30 @@ import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import LibraryListItem from './LibraryListItem'
 import ListSubheader from '@mui/material/ListSubheader'
+import theme from './theme'
 
 const LibraryList = props => {
   const { libraries, firstSearchCompleted } = props
 
   const filteredLibraries = libraries
-    .filter(l => l.distance < 16093)
+    .filter(l => l.distance < 11265.4)
     .slice(0, 10)
   return (
     <List
       sx={{
         maxHeight: '100%',
-        bgcolor: 'background.paper',
         position: 'relative',
         overflow: 'auto',
-        '& ul': { padding: 0 }
+        padding: 0,
+        marginTop: theme => theme.spacing(1)
       }}
     >
+      <ListSubheader>
+        {firstSearchCompleted &&
+          `Found ${filteredLibraries.length} nearby libraries`}
+      </ListSubheader>
       {firstSearchCompleted && (
         <>
-          <ListSubheader>{`Found ${filteredLibraries.length} nearby libraries`}</ListSubheader>
           {filteredLibraries.map(library => (
             <LibraryListItem key={library.id} library={library} />
           ))}

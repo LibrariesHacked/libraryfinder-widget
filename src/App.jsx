@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { ThemeProvider } from '@mui/material/styles'
 
 import CssBaseline from '@mui/material/CssBaseline'
 
@@ -16,29 +16,10 @@ import WebFont from 'webfontloader'
 
 import useLibraries from './hooks/useLibraries'
 
-const theme = createTheme({
-  typography: { fontFamily: ['Lexend', 'sans-serif'].join(',') },
-  palette: {
-    primary: {
-      main: '#3f51b5'
-    },
-    secondary: {
-      main: '#f50057'
-    }
-  },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none'
-        }
-      }
-    }
-  }
-})
+import theme from './theme'
 
 const App = props => {
-  const { width, height } = props
+  const { width, height, primary, secondary, service, region } = props
   const [firstSearchCompleted, setFirstSearchCompleted] = useState(false)
   const {
     loadingLibraries,
@@ -55,6 +36,9 @@ const App = props => {
     sortLibrariesByLocation(longitude, latitude)
   }
 
+  primary && (theme.palette.primary.main = primary)
+  secondary && (theme.palette.secondary.main = secondary)
+
   useEffect(() => {
     WebFont.load({
       google: {
@@ -70,12 +54,12 @@ const App = props => {
         sx={{
           width,
           height,
-          padding: theme => theme.spacing(1)
+          padding: theme => theme.spacing(0.5)
         }}
       >
         <Box
           sx={{
-            height: 'calc(100% - 8px)',
+            height: '100%',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'stretch',
@@ -91,7 +75,11 @@ const App = props => {
             {(loadingLibraries || loadingLibrary) && <LinearProgress />}
           </Box>
           <Box>
-            <Search refreshLibraryList={refreshLibraryList} />
+            <Search
+              refreshLibraryList={refreshLibraryList}
+              service={service}
+              region={region}
+            />
           </Box>
           <Box sx={{ flexGrow: 1, minHeight: 0 }}>
             <LibraryList
@@ -115,7 +103,11 @@ const App = props => {
 
 App.propTypes = {
   width: PropTypes.string,
-  height: PropTypes.string
+  height: PropTypes.string,
+  primary: PropTypes.string,
+  secondary: PropTypes.string,
+  service: PropTypes.string,
+  region: PropTypes.string
 }
 
 App.defaultProps = {
