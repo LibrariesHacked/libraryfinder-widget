@@ -4,12 +4,12 @@
 import { readFileSync, writeFileSync } from 'fs'
 
 const librarySource = './data/libraries.json'
-const libraryDestination = './data/libraries.min.json'
+const libraryDestination = './public/libraries.min.json'
 
 const servicesSource = './data/services.json'
-const servicesDestination = './data/services.min.json'
+const servicesDestination = './public/services.min.json'
 
-const regionsDestination = './data/regions.min.json'
+const regionsDestination = './public/regions.min.json'
 
 const libraryData = readFileSync(librarySource, 'utf8')
 const libraryArray = JSON.parse(libraryData)
