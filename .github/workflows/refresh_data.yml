@@ -1,0 +1,37 @@
+name: Refresh data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # every day at midnight
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: download data
+        run: npm run download
+
+      - name: process the data
+        run: npm run process
+
+      - name: run a deployment
+        run: npm run deploy
+
+      - name: check for changes
+        run: git status
+
+      - name: commit changed files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Auto update of data files"
+
+      - name: fetch from main
+        run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+
+      - name: push code to main
+        run: git push origin HEAD:main

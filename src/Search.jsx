@@ -55,10 +55,10 @@ const Search = props => {
           InputProps={{
             ...params.InputProps,
             endAdornment: (
-              <React.Fragment>
+              <>
                 {loading && loadingProgress}
                 {params.InputProps.endAdornment}
-              </React.Fragment>
+              </>
             )
           }}
         />
@@ -68,7 +68,7 @@ const Search = props => {
           {option.name1}
           <Chip
             sx={{ marginLeft: theme => theme.spacing() }}
-            color='secondary'
+            color='primary'
             size='small'
             label={
               option.populatedPlace ||
@@ -76,7 +76,7 @@ const Search = props => {
               option.region ||
               option.country
             }
-            variant='outlined'
+            variant='filled'
           />
         </Box>
       )}
@@ -106,7 +106,9 @@ const Search = props => {
 }
 
 Search.propTypes = {
-  refreshLibraryList: PropTypes.func.isRequired
+  refreshLibraryList: PropTypes.func.isRequired,
+  service: PropTypes.string,
+  region: PropTypes.string
 }
 
 export default Search

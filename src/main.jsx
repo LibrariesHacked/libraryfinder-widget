@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 
 import App from './App.jsx'
 
-const rootElement = document.getElementById('libraryon-libraryfinder-widget')
+const rootElement = document.getElementById('libraryfinder-widget')
 
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
