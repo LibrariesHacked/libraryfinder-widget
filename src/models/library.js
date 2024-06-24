@@ -179,13 +179,13 @@ class Library {
 
   static async getAllLibraries () {
     const librariesData = fetch(
-      'https://raw.githubusercontent.com/LibrariesHacked/libraryon-libraryfinder-widget/1-make-the-build-available-on-github/data/libraries.min.json'
+      'https://widget.librarymap.co.uk/libraries.min.json'
     )
     const servicesData = fetch(
-      'https://raw.githubusercontent.com/LibrariesHacked/libraryon-libraryfinder-widget/1-make-the-build-available-on-github/data/services.min.json'
+      'https://widget.librarymap.co.uk/services.min.json'
     )
     const regionsData = fetch(
-      'https://raw.githubusercontent.com/LibrariesHacked/libraryon-libraryfinder-widget/1-make-the-build-available-on-github/data/regions.min.json'
+      'https://widget.librarymap.co.uk/regions.min.json'
     )
     const [librariesResponse, servicesResponse, regionsResponse] =
       await Promise.all([librariesData, servicesData, regionsData])
