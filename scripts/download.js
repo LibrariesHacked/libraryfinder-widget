@@ -2,7 +2,6 @@ import { writeFile } from 'fs'
 import { get } from 'https'
 
 const librariesUrl = 'https://libraryon.org/api/libraries'
-const librariesFilePath = './data/libraries.json'
 const servicesUrl =
   'https://api-geography.librarydata.uk/rest/libraryauthorities'
 const servicesFilePath = './data/services.json'
@@ -32,5 +31,8 @@ const downloadFile = (url, filePath) => {
   })
 }
 
-downloadFile(librariesUrl, librariesFilePath)
+downloadFile(librariesUrl + '?page=1', './data/libraries1.json')
+downloadFile(librariesUrl + '?page=2', './data/libraries2.json')
+downloadFile(librariesUrl + '?page=3', './data/libraries3.json')
+downloadFile(librariesUrl + '?page=4', './data/libraries4.json')
 downloadFile(servicesUrl, servicesFilePath)

@@ -3,7 +3,12 @@
 
 import { readFileSync, writeFileSync } from 'fs'
 
-const librarySource = './data/libraries.json'
+const librarySources = [
+  './data/libraries1.json',
+  './data/libraries2.json',
+  './data/libraries3.json',
+  './data/libraries4.json'
+]
 const libraryDestination = './public/libraries.min.json'
 
 const servicesSource = './data/services.json'
@@ -11,8 +16,12 @@ const servicesDestination = './public/services.min.json'
 
 const regionsDestination = './public/regions.min.json'
 
-const libraryData = readFileSync(librarySource, 'utf8')
-const libraryArray = JSON.parse(libraryData)
+const libraries = []
+for (const librarySource of librarySources) {
+  const libraryData = readFileSync(librarySource, 'utf8')
+  const libraryArray = JSON.parse(libraryData).libraries
+  libraries.push(...libraryArray)
+}
 
 const servicesData = readFileSync(servicesSource, 'utf8')
 const servicesArray = JSON.parse(servicesData)
@@ -30,7 +39,7 @@ const processedServicesArray = servicesArray.map(item => {
 const processedServicesData = JSON.stringify(processedServicesArray)
 writeFileSync(servicesDestination, processedServicesData, 'utf8')
 
-const processedLibraryArray = libraryArray.libraries.map(item => {
+const processedLibraryArray = libraries.map(item => {
   const {
     name,
     data_entry: { library_id: id, service_id: serviceId, longitude, latitude }
