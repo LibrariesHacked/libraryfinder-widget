@@ -14,6 +14,8 @@ import WebFont from 'webfontloader'
 
 import useLibraries from './hooks/useLibraries'
 
+import ScopedCssBaseline from '@mui/material/ScopedCssBaseline'
+
 import theme from './theme'
 
 const App = props => {
@@ -47,53 +49,55 @@ const App = props => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box
-        sx={{
-          width,
-          height,
-          padding: theme => theme.spacing(0.5)
-        }}
-      >
+      <ScopedCssBaseline>
         <Box
           sx={{
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'stretch',
-            padding: theme => theme.spacing(1),
-            border: theme => `1px solid ${theme.palette.divider}`,
-            borderRadius: theme => theme.shape.borderRadius
+            width,
+            height,
+            padding: theme => theme.spacing(0.5)
           }}
         >
-          <Box>
-            <Header />
-          </Box>
-          <Box>
-            {(loadingLibraries || loadingLibrary) && <LinearProgress />}
-          </Box>
-          <Box>
-            <Search
-              refreshLibraryList={refreshLibraryList}
-              service={service}
-              region={region}
-            />
-          </Box>
-          <Box sx={{ flexGrow: 1, minHeight: 0 }}>
-            <LibraryList
-              libraries={libraries}
-              getLibrary={getLibrary}
-              firstSearchCompleted={firstSearchCompleted}
-            />
-          </Box>
           <Box
             sx={{
-              padding: theme => theme.spacing(1)
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'stretch',
+              padding: theme => theme.spacing(1),
+              border: theme => `1px solid ${theme.palette.divider}`,
+              borderRadius: theme => theme.shape.borderRadius
             }}
           >
-            <Footer />
+            <Box>
+              <Header />
+            </Box>
+            <Box>
+              {(loadingLibraries || loadingLibrary) && <LinearProgress />}
+            </Box>
+            <Box>
+              <Search
+                refreshLibraryList={refreshLibraryList}
+                service={service}
+                region={region}
+              />
+            </Box>
+            <Box sx={{ flexGrow: 1, minHeight: 0 }}>
+              <LibraryList
+                libraries={libraries}
+                getLibrary={getLibrary}
+                firstSearchCompleted={firstSearchCompleted}
+              />
+            </Box>
+            <Box
+              sx={{
+                padding: theme => theme.spacing(1)
+              }}
+            >
+              <Footer />
+            </Box>
           </Box>
         </Box>
-      </Box>
+      </ScopedCssBaseline>
     </ThemeProvider>
   )
 }
