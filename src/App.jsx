@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { ThemeProvider } from '@mui/material/styles'
-
 import Box from '@mui/material/Box'
 import Header from './Header'
 import Search from './Search'
@@ -16,10 +14,8 @@ import useLibraries from './hooks/useLibraries'
 
 import ScopedCssBaseline from '@mui/material/ScopedCssBaseline'
 
-import theme from './theme'
-
 const App = props => {
-  const { width, height, primary, secondary, service, region } = props
+  const { width, height, service, region } = props
   const [firstSearchCompleted, setFirstSearchCompleted] = useState(false)
   const {
     loadingLibraries,
@@ -36,9 +32,6 @@ const App = props => {
     sortLibrariesByLocation(longitude, latitude)
   }
 
-  primary && (theme.palette.primary.main = primary)
-  secondary && (theme.palette.secondary.main = secondary)
-
   useEffect(() => {
     WebFont.load({
       google: {
@@ -48,65 +41,67 @@ const App = props => {
   }, [])
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box
+    <Box
+      sx={{
+        width,
+        height,
+        padding: theme => theme.spacing(0.5)
+      }}
+    >
+      <ScopedCssBaseline
         sx={{
-          width,
-          height,
-          padding: theme => theme.spacing(0.5)
+          background: 'transparent',
+          height: '100%'
         }}
       >
-        <ScopedCssBaseline>
+        <Box
+          sx={{
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'stretch',
+            padding: theme => theme.spacing(1),
+            border: theme => `1px solid ${theme.palette.divider}`,
+            borderRadius: theme => theme.shape.borderRadius,
+            backgroundColor: theme => theme.palette.background.paper
+          }}
+        >
+          <Box>
+            <Header />
+          </Box>
+          <Box>
+            {(loadingLibraries || loadingLibrary) && <LinearProgress />}
+          </Box>
+          <Box>
+            <Search
+              refreshLibraryList={refreshLibraryList}
+              service={service}
+              region={region}
+            />
+          </Box>
+          <Box sx={{ flexGrow: 1, minHeight: 0 }}>
+            <LibraryList
+              libraries={libraries}
+              getLibrary={getLibrary}
+              firstSearchCompleted={firstSearchCompleted}
+            />
+          </Box>
           <Box
             sx={{
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'stretch',
-              padding: theme => theme.spacing(1),
-              border: theme => `1px solid ${theme.palette.divider}`,
-              borderRadius: theme => theme.shape.borderRadius
+              padding: theme => theme.spacing(1)
             }}
           >
-            <Box>
-              <Header />
-            </Box>
-            <Box>
-              {(loadingLibraries || loadingLibrary) && <LinearProgress />}
-            </Box>
-            <Box>
-              <Search
-                refreshLibraryList={refreshLibraryList}
-                service={service}
-                region={region}
-              />
-            </Box>
-            <Box sx={{ flexGrow: 1, minHeight: 0 }}>
-              <LibraryList
-                libraries={libraries}
-                getLibrary={getLibrary}
-                firstSearchCompleted={firstSearchCompleted}
-              />
-            </Box>
-            <Box
-              sx={{
-                padding: theme => theme.spacing(1)
-              }}
-            >
-              <Footer />
-            </Box>
+            <Footer />
           </Box>
-        </ScopedCssBaseline>
-      </Box>
-    </ThemeProvider>
+        </Box>
+      </ScopedCssBaseline>
+    </Box>
   )
 }
 
 App.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
-  primary: PropTypes.string,
-  secondary: PropTypes.string,
   service: PropTypes.string,
   region: PropTypes.string
 }

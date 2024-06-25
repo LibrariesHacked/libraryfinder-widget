@@ -6,7 +6,6 @@ import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import LibraryListItem from './LibraryListItem'
 import ListSubheader from '@mui/material/ListSubheader'
-import theme from './theme'
 
 const LibraryList = props => {
   const { libraries, firstSearchCompleted } = props
