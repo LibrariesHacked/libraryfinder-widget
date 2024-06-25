@@ -45,7 +45,8 @@ const App = props => {
       sx={{
         width,
         height,
-        padding: theme => theme.spacing(0.5)
+        padding: theme => theme.spacing(0.5),
+        boxSizing: 'border-box'
       }}
     >
       <ScopedCssBaseline
@@ -60,7 +61,7 @@ const App = props => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'stretch',
-            padding: theme => theme.spacing(1),
+            padding: theme => theme.spacing(1.5),
             border: theme => `1px solid ${theme.palette.divider}`,
             borderRadius: theme => theme.shape.borderRadius,
             backgroundColor: theme => theme.palette.background.paper
