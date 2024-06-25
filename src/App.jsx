@@ -49,14 +49,14 @@ const App = props => {
 
   return (
     <ThemeProvider theme={theme}>
-      <ScopedCssBaseline>
-        <Box
-          sx={{
-            width,
-            height,
-            padding: theme => theme.spacing(0.5)
-          }}
-        >
+      <Box
+        sx={{
+          width,
+          height,
+          padding: theme => theme.spacing(0.5)
+        }}
+      >
+        <ScopedCssBaseline>
           <Box
             sx={{
               height: '100%',
@@ -96,8 +96,8 @@ const App = props => {
               <Footer />
             </Box>
           </Box>
-        </Box>
-      </ScopedCssBaseline>
+        </ScopedCssBaseline>
+      </Box>
     </ThemeProvider>
   )
 }
