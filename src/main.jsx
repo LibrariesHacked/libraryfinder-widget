@@ -20,7 +20,11 @@ const cache = createCache({
 })
 
 const theme = createTheme({
-  typography: { fontFamily: ['Lexend', 'sans-serif'].join(',') },
+  typography: {
+    fontSize: 14,
+    htmlFontSize: container.dataset.htmlFontSize || 16,
+    fontFamily: ['Lexend', 'sans-serif'].join(',')
+  },
   palette: {
     primary: {
       main: container.dataset.primary || '#3f51b5'
