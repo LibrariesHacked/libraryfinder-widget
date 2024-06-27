@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Library finder widget</title>
   <link rel="stylesheet" href="/govuk-frontend-5.4.0.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
 </head>
 
 <body class="govuk-template__body">
@@ -21,24 +22,131 @@
     </div>
   </header>
 
+  <div class="govuk-width-container">
 
-  <p>
-    The default setup is for the widget to take up 100% of the available container width, with a height of 500 pixels.
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-phase-banner__content__tag">
+          Alpha
+        </strong>
+        <span class="govuk-phase-banner__text">
+          This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback by email</a>.
+        </span>
+      </p>
+    </div>
 
-    The default primary colour is #632279 and the default secondary colour is #f8ab89.
+    <span class="govuk-caption-xl">Instructions</span>
+    <h1 class="govuk-heading-xl">Add a library finder to your website</h1>
 
 
-  </p>
-  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
-  <div id="libraryfinder-widget" data-width="320px" data-height="500px" data-primary="#632279" data-secondary="#f8ab89"
-    data-service="" data-region="">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          <span class="govuk-caption-l">Size</span>
+          Change the width and height
+        </h1>
+      </legend>
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="weight">
+            What is the width in pixels?
+          </label>
+        </h1>
+        <div class="govuk-input__wrapper">
+          <input class="govuk-input govuk-input--width-5" id="width" name="width" type="text" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">kg</div>
+        </div>
+      </div>
+    </fieldset>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          <span class="govuk-caption-l">Colour scheme</span>
+          Set a primary and secondary colour
+        </h1>
+      </legend>
+
+    </fieldset>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          Libraries to return
+        </h1>
+      </legend>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="regions">
+          Regions
+        </label>
+        <select class="govuk-select" id="regions" name="regions">
+          <option value="published">Recently published</option>
+          <option value="updated" selected>Recently updated</option>
+          <option value="views">Most views</option>
+          <option value="comments">Most comments</option>
+        </select>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="services">
+          Library services
+        </label>
+        <select class="govuk-select" id="services" name="services">
+          <option value="published">Recently published</option>
+          <option value="updated" selected>Recently updated</option>
+          <option value="views">Most views</option>
+          <option value="comments">Most comments</option>
+        </select>
+      </div>
+
+      <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+        Refresh code
+      </a>
+
+    </fieldset>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <span class="govuk-caption-xl">Code</span>
+    <h1 class="govuk-heading-xl">Take a copy of your embed code</h1>
+
+    <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+      Refresh code
+    </a>
+
+    <pre><code class="language-css">.some-box {
+      width: 20px;
+      height: 20px;
+      background: black;
+      margin-bottom: 1.5rem;
+    }
+    </code></pre>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <span class="govuk-caption-xl">Demo</span>
+    <h1 class="govuk-heading-xl">Example of your library finder</h1>
+
+
+    <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+    <div id="libraryfinder-widget" data-width="320px" data-height="500px" data-primary="#632279"
+      data-secondary="#f8ab89" data-service="" data-region="">
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/govuk-frontend-5.4.0.min.js"></script>
+    <script type="module">
+      import { initAll } from '/govuk-frontend-5.4.0.min.js?url'
+      initAll()
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
   </div>
-  <script type="module" src="/src/main.jsx"></script>
-  <script type="module" src="/govuk-frontend-5.4.0.min.js"></script>
-  <script type="module">
-    import { initAll } from '/govuk-frontend-5.4.0.min.js?url'
-    initAll()
-  </script>
 </body>
 
 </html>
