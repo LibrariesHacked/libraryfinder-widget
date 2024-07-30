@@ -8,7 +8,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         entryFileNames: 'libraryfinder-widget.js'
-      }
+      },
+      external: ['/govuk-frontend-5.4.0.min.js']
     }
   }
 })
