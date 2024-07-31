@@ -35,7 +35,7 @@ const App = props => {
   useEffect(() => {
     WebFont.load({
       google: {
-        families: ['Lexend:400,500,600,700']
+        families: ['Lexend:400']
       }
     })
   }, [])
@@ -64,7 +64,7 @@ const App = props => {
             padding: theme => theme.spacing(1.5),
             border: theme => `1px solid ${theme.palette.divider}`,
             borderRadius: theme => theme.shape.borderRadius,
-            backgroundColor: theme => theme.palette.background.paper
+            backgroundColor: theme => theme.palette.secondary.main
           }}
         >
           <Box>
@@ -80,7 +80,17 @@ const App = props => {
               region={region}
             />
           </Box>
-          <Box sx={{ flexGrow: 1, minHeight: 0 }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              minHeight: 0,
+              padding: theme => theme.spacing(1),
+              marginTop: theme => theme.spacing(1),
+              borderRadius: theme => theme.shape.borderRadius,
+              border: theme => `1px solid ${theme.palette.divider}`,
+              backgroundColor: 'white'
+            }}
+          >
             <LibraryList
               libraries={libraries}
               getLibrary={getLibrary}

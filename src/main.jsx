@@ -27,10 +27,10 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: container.dataset.primary || '#3f51b5'
+      main: container.dataset.primary || '#63117b'
     },
     secondary: {
-      main: container.dataset.primary || '#f50057'
+      main: container.dataset.secondary || '#f0e7da'
     }
   },
   components: {

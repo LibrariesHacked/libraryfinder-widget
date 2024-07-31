@@ -52,8 +52,12 @@ const Search = props => {
           {...params}
           label='Search by place or postcode'
           variant='outlined'
+          color='primary'
           InputProps={{
             ...params.InputProps,
+            sx: {
+              backgroundColor: 'white'
+            },
             endAdornment: (
               <>
                 {loading && loadingProgress}
