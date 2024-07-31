@@ -20,7 +20,7 @@ const LibraryList = props => {
         position: 'relative',
         overflow: 'auto',
         padding: 0,
-        marginTop: theme => theme.spacing(1)
+        backgroundColor: 'white'
       }}
     >
       <ListSubheader>
@@ -37,7 +37,7 @@ const LibraryList = props => {
       {!firstSearchCompleted && (
         <ListItem>
           <ListItemText>
-            Search to select your location and find local libraries
+            Search for your location to find local libraries
           </ListItemText>
         </ListItem>
       )}
