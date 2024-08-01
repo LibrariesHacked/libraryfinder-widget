@@ -31,7 +31,7 @@
     <div class="govuk-phase-banner">
       <p class="govuk-phase-banner__content">
         <strong class="govuk-tag govuk-phase-banner__content__tag">
-          Alpha
+          Prototype
         </strong>
         <span class="govuk-phase-banner__text">
           This is a new service. Help us improve it and <a class="govuk-link"
@@ -46,12 +46,13 @@
     <h1 class="govuk-heading-l">Introduction</h1>
 
     <p class="govuk-body">
-      A widget is a small embeddable component that can be placed on any website. This widget helps users find their
-      nearest public library.
+      A widget is a small component that can be placed on any website. This widget helps users find their nearest public
+      library.
     </p>
     <p class="govuk-body">
       You can either embed the widget as it comes, or customise the width, height, and primary/secondary colours. Once
-      you are done with any customisations, copy the code at the bottom of the page and paste into your website's HTML.
+      you are done with customisations, refresh and copy the code at the bottom of the page, to paste into your
+      website's HTML.
     </p>
     <p class="govuk-body">
       If you have any problems, or would like to give feedback, please <a class="govuk-link"
@@ -63,6 +64,10 @@
     <span class="govuk-caption-l">See it in action</span>
     <h1 class="govuk-heading-l">Demo</h1>
 
+    <p class="govuk-body">
+      The demo shows the widget with the default colours and a width of 320px and a height of 500px.
+    </p>
+
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 
     <div id="libraryfinder-widget" data-width="320px" data-height="500px" data-primary="#63117b"
@@ -73,6 +78,11 @@
 
     <span class="govuk-caption-l">Make it work for your website</span>
     <h1 class="govuk-heading-l">Customisation</h1>
+
+    <p class="govuk-body">
+      After you have made your customisations for size and colours, click the 'Refresh code' button to update the code
+      snippet at the bottom of the page.
+    </p>
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section">
@@ -92,8 +102,8 @@
             </legend>
 
             <p class="govuk-body">
-              By default the widget will be 100% width (filling whatever container it is placed in), and 700px high. You
-              can adjust these values below. It is not recommended to go below 350px in width or 500px in height.
+              By default the widget will be 100% width (filling whatever container it is placed in), and 500px high. You
+              can adjust these values below. It is not recommended to go below 320px in width or 500px in height.
             </p>
 
             <div class="govuk-form-group">
@@ -156,10 +166,9 @@
               </h1>
               <div class="govuk-input__wrapper">
                 <input class="govuk-input govuk-input--width-5" id="primary" name="primary" type="color"
-                  spellcheck="false">
+                  spellcheck="false" value="#63117b">
               </div>
             </div>
-
 
             <div class="govuk-form-group">
               <h1 class="govuk-label-wrapper">
@@ -172,15 +181,13 @@
               </h1>
               <div class="govuk-input__wrapper">
                 <input class="govuk-input govuk-input--width-5" id="secondary" name="secondary" type="color"
-                  spellcheck="false">
+                  spellcheck="false" value="#f0e7da">
               </div>
             </div>
 
           </fieldset>
-
         </div>
       </div>
-
     </div>
 
     <span class="govuk-caption-l">Take a copy of your embed code</span>
@@ -241,7 +248,12 @@
     firstTag.parentNode.insertBefore(script, firstTag);
   })();
 <\/script>
-<div id="libraryfinder-widget" data-width="${width}" data-height="${height}" data-primary="${primary}" data-secondary="${secondary}"></div>`;
+<div id="libraryfinder-widget" 
+  data-width="${width}"
+  data-height="${height}"
+  data-primary="${primary}"
+  data-secondary="${secondary}">
+</div>`;
         codeLibraryFinder.innerText = embedScript;
       };
 
