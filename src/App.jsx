@@ -14,8 +14,7 @@ import useLibraries from './hooks/useLibraries'
 
 import ScopedCssBaseline from '@mui/material/ScopedCssBaseline'
 
-const App = props => {
-  const { width, height, service, region } = props
+const App = ({ width = '100%', height = '500px', service, region }) => {
   const [firstSearchCompleted, setFirstSearchCompleted] = useState(false)
   const {
     loadingLibraries,
@@ -115,11 +114,6 @@ App.propTypes = {
   height: PropTypes.string,
   service: PropTypes.string,
   region: PropTypes.string
-}
-
-App.defaultProps = {
-  width: '100%',
-  height: '100%'
 }
 
 export default App
