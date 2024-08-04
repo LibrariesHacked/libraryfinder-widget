@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import PlaceName from '../models/placeName'
 
@@ -8,16 +8,22 @@ const usePlaceNameSearch = () => {
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(false)
 
+  const previousController = useRef()
+
   useEffect(() => {
     const fetchResults = async () => {
-      const results = await PlaceName.search(searchTerm, localTypes)
+      if (previousController.current) previousController.current.abort()
+      const controller = new AbortController()
+      const signal = controller.signal
+      previousController.current = controller
+      const results = await PlaceName.search(searchTerm, localTypes, signal)
       setResults(results)
+      setLoading(false)
     }
 
     if (searchTerm) {
       setLoading(true)
       fetchResults()
-      setLoading(false)
     } else {
       setResults([])
     }

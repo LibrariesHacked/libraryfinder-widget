@@ -6,7 +6,7 @@ This is a widget that helps users find libraries in their area.
 
 [LibraryOn](https://libraryon.org/) is a project to connect libraries and people. The project goal is "to increase the number of people who use libraries, both in person and online."
 
-The website includes a library finder, with details of the library locations in England. The underlying data that is used in the library finder is published as part of an API. The API is available at [https://libraryon.org/api-docs/v1](https://libraryon.org/api-docs/v1).
+The website includes a library finder, with details of the library locations in England. The underlying data used in the library finder is published as part of an API. The API is available at [https://libraryon.org/api-docs/v1](https://libraryon.org/api-docs/v1).
 
 ## Getting Started
 

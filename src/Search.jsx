@@ -5,7 +5,10 @@ import Autocomplete from '@mui/material/Autocomplete'
 import Box from '@mui/material/Box'
 import Chip from '@mui/material/Chip'
 import CircularProgress from '@mui/material/CircularProgress'
+import InputAdornment from '@mui/material/InputAdornment'
 import TextField from '@mui/material/TextField'
+
+import SearchIcon from '@mui/icons-material/Search'
 
 import usePlaceNameSearch from './hooks/usePlaceNameSearch'
 
@@ -39,7 +42,13 @@ const Search = props => {
   const [inputValue, setInputValue] = useState('')
   const [selectedPlaceName, setSelectedPlaceName] = useState(null)
 
-  const loadingProgress = <CircularProgress color='inherit' size={20} />
+  const loadingProgress = (
+    <>
+      <InputAdornment position='end'>
+        <CircularProgress color='inherit' size={20} />
+      </InputAdornment>
+    </>
+  )
 
   return (
     <Autocomplete
@@ -58,12 +67,12 @@ const Search = props => {
             sx: {
               backgroundColor: 'white'
             },
-            endAdornment: (
-              <>
-                {loading && loadingProgress}
-                {params.InputProps.endAdornment}
-              </>
-            )
+            startAdornment: (
+              <InputAdornment position='start'>
+                <SearchIcon />
+              </InputAdornment>
+            ),
+            endAdornment: <>{loading && loadingProgress}</>
           }}
         />
       )}
@@ -84,6 +93,7 @@ const Search = props => {
           />
         </Box>
       )}
+      filterOptions={x => x}
       freeSolo
       fullWidth
       getOptionKey={option => results.indexOf(option)}
@@ -94,8 +104,10 @@ const Search = props => {
       loading={loading}
       noOptionsText='No locations'
       onChange={(event, newValue) => {
-        setSelectedPlaceName(newValue)
-        refreshLibraryList(newValue.longitude, newValue.latitude)
+        if (newValue !== null) {
+          setSelectedPlaceName(newValue)
+          refreshLibraryList(newValue.longitude, newValue.latitude)
+        }
       }}
       onInputChange={(event, newInputValue) => {
         setInputValue(newInputValue)

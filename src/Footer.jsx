@@ -7,7 +7,7 @@ function Footer () {
     <Typography
       variant='body1'
       component='p'
-      sx={{ marginTop: theme => theme.spacing(2) }}
+      sx={{ marginTop: theme => theme.spacing(1) }}
     >
       Powered by{' '}
       <a href='https://www.libraryon.org/' target='_blank' rel='noreferrer'>

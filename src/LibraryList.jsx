@@ -23,14 +23,17 @@ const LibraryList = props => {
         backgroundColor: 'white'
       }}
     >
-      <ListSubheader>
+      <ListSubheader key='li_subheader'>
         {firstSearchCompleted &&
           `Found ${filteredLibraries.length} nearby libraries`}
       </ListSubheader>
       {firstSearchCompleted && (
         <>
           {filteredLibraries.map(library => (
-            <LibraryListItem key={library.id} library={library} />
+            <LibraryListItem
+              key={`li_library_${library.libraryId}`}
+              library={library}
+            />
           ))}
         </>
       )}
