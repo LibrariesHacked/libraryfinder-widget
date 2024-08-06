@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Library finder widget</title>
   <link rel="stylesheet" href="/govuk-frontend-5.4.0.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/default.min.css">
   <style>
 
   </style>
@@ -43,7 +43,7 @@
     <hr class="govuk-section-break govuk-section-break--m">
 
     <span class="govuk-caption-l">Add a library finder to your website</span>
-    <h1 class="govuk-heading-l">Introduction</h1>
+    <h1 class="govuk-heading-l">Library finder instructions</h1>
 
     <p class="govuk-body" id="main-content">
       A widget is a small component that can be placed on any website. This widget helps users find their nearest public
@@ -62,7 +62,7 @@
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
     <span class="govuk-caption-l">See it in action</span>
-    <h1 class="govuk-heading-l">Demo</h1>
+    <h2 class="govuk-heading-l">Demo</h2>
 
     <p class="govuk-body">
       The demo shows the widget with the default colours and a width of 320px and a height of 500px.
@@ -77,7 +77,7 @@
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
     <span class="govuk-caption-l">Make it work for your website</span>
-    <h1 class="govuk-heading-l">Customisation</h1>
+    <h2 class="govuk-heading-l">Customisation</h2>
 
     <p class="govuk-body">
       After you have made your customisations for size and colours, click the 'Refresh code' button to update the code
@@ -87,34 +87,35 @@
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section">
         <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
+          <h3 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
               Size
             </span>
-          </h2>
+          </h3>
         </div>
         <div id="accordion-default-content-1" class="govuk-accordion__section-content">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h2 class="govuk-fieldset__heading">
+              <h4 class="govuk-fieldset__heading">
                 Set the width and height
-              </h2>
+              </h4>
             </legend>
 
             <p class="govuk-body">
-              By default the widget will be 100% width (filling whatever container it is placed in), and 500px high. You
+              By default the widget will be 100% width (filling whatever container it is placed in), and 500px high.
+              You
               can adjust these values below. It is not recommended to go below 320px in width or 500px in height.
             </p>
 
             <div class="govuk-form-group">
-              <h1 class="govuk-label-wrapper">
+              <h4 class="govuk-label-wrapper">
                 <label class="govuk-label govuk-label--2" for="width">
                   What is the width in pixels?
                 </label>
                 <div id="width-hint" class="govuk-hint">
                   For example, enter 400 for 400px
                 </div>
-              </h1>
+              </h4>
               <div class="govuk-input__wrapper">
                 <input class="govuk-input govuk-input--width-4" id="width" name="width" type="text" spellcheck="false">
                 <div class="govuk-input__suffix" aria-hidden="true">px</div>
@@ -122,14 +123,14 @@
             </div>
 
             <div class="govuk-form-group">
-              <h1 class="govuk-label-wrapper">
+              <h4 class="govuk-label-wrapper">
                 <label class="govuk-label govuk-label--2" for="height">
                   What is the height in pixels?
                 </label>
                 <div id="height-hint" class="govuk-hint">
                   For example, enter 500 for 500px
                 </div>
-              </h1>
+              </h4>
               <div class="govuk-input__wrapper">
                 <input class="govuk-input govuk-input--width-4" id="height" name="height" type="text"
                   spellcheck="false">
@@ -141,29 +142,29 @@
       </div>
       <div class="govuk-accordion__section">
         <div class="govuk-accordion__section-header">
-          <h2 class="govuk-accordion__section-heading">
+          <h3 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
               Colours
             </span>
-          </h2>
+          </h3>
         </div>
         <div id="accordion-default-content-2" class="govuk-accordion__section-content">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h3 class="govuk-fieldset__heading">
+              <h4 class="govuk-fieldset__heading">
                 Set a primary and secondary colour
-              </h3>
+              </h4>
             </legend>
 
             <div class="govuk-form-group">
-              <h1 class="govuk-label-wrapper">
+              <h4 class="govuk-label-wrapper">
                 <label class="govuk-label govuk-label--2" for="primary">
                   What is the primary colour?
                 </label>
                 <div id="primary-hint" class="govuk-hint">
                   Use the colour picker to select a colour that will be used for the main elements of the widget
                 </div>
-              </h1>
+              </h4>
               <div class="govuk-input__wrapper">
                 <input class="govuk-input govuk-input--width-5" id="primary" name="primary" type="color"
                   spellcheck="false" value="#63117b">
@@ -171,14 +172,14 @@
             </div>
 
             <div class="govuk-form-group">
-              <h1 class="govuk-label-wrapper">
+              <h3 class="govuk-label-wrapper">
                 <label class="govuk-label govuk-label--2" for="secondary">
                   What is the secondary colour?
                 </label>
                 <div id="secondary-hint" class="govuk-hint">
                   Use the colour picker to select a colour that will be used for secondary elements of the widget
                 </div>
-              </h1>
+              </h3>
               <div class="govuk-input__wrapper">
                 <input class="govuk-input govuk-input--width-5" id="secondary" name="secondary" type="color"
                   spellcheck="false" value="#f0e7da">
@@ -199,46 +200,59 @@
     </a>
 
     <pre>
-      <code id="code_libraryfinder" class="language-html hljs-copy"></code>
+      <code id="code_libraryfinder" class="language-html"></code>
     </pre>
+  </div>
 
-    <footer class="govuk-footer">
-      <div class="govuk-width-container">
+  <footer class="govuk-footer">
+    <div class="govuk-width-container">
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          <span class="govuk-footer__licence-description">
+            All widget code is open source under the
+            <a class="govuk-footer__link"
+              href="https://github.com/LibrariesHacked/libraryfinder-widget/blob/main/LICENSE" rel="license">MIT
+              Licence</a> and can be found on <a class="govuk-footer__link"
+              href="https://github.com/LibrariesHacked/libraryfinder-widget/">GitHub</a>
+          </span>
+        </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script type="module" src="/govuk-frontend-5.4.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script type="text/javascript">
+  <script type="module" src="/govuk-frontend-5.4.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"
+    integrity="sha512-6yoqbrcLAHDWAdQmiRlHG4+m0g/CT/V9AGyxabG8j7Jk8j3r3K6due7oqpiRMZqcYe9WM2gPcaNNxnl2ux+3tA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript">
 
-      const defaultWidth = '100%';
-      const defaultHeight = '500px';
-      const defaultPrimary = '#632279';
-      const defaultSecondary = '#f8ab89';
+    const defaultWidth = '100%';
+    const defaultHeight = '500px';
+    const defaultPrimary = '#632279';
+    const defaultSecondary = '#f8ab89';
 
-      const libraryFinderWidget = document.getElementById('libraryfinder-widget');
-      const refreshCodeButton = document.getElementById('btn_refreshcode');
-      const codeLibraryFinder = document.getElementById('code_libraryfinder');
+    const libraryFinderWidget = document.getElementById('libraryfinder-widget');
+    const refreshCodeButton = document.getElementById('btn_refreshcode');
+    const codeLibraryFinder = document.getElementById('code_libraryfinder');
 
-      refreshCodeButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        refreshCode();
-      });
+    refreshCodeButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      refreshCode();
+    });
 
-      const refreshCode = () => {
+    const refreshCode = () => {
 
-        const customWidth = document.getElementById('width').value;
-        const customHeight = document.getElementById('height').value;
-        const customPrimary = document.getElementById('primary').value;
-        const customSecondary = document.getElementById('secondary').value;
+      const customWidth = document.getElementById('width').value;
+      const customHeight = document.getElementById('height').value;
+      const customPrimary = document.getElementById('primary').value;
+      const customSecondary = document.getElementById('secondary').value;
 
-        const width = customWidth || defaultWidth;
-        const height = customHeight || defaultHeight;
-        const primary = customPrimary || defaultPrimary;
-        const secondary = customSecondary || defaultSecondary;
+      const width = customWidth ? customWidth + 'px' : defaultWidth;
+      const height = customHeight ? customHeight + 'px' : defaultHeight;
+      const primary = customPrimary || defaultPrimary;
+      const secondary = customSecondary || defaultSecondary;
 
-        const embedScript = `
-<script>
+      const embedScript = `<script>
   (function () {
     var script = document.createElement('script');
     script.type = 'text/javascript';
@@ -254,13 +268,18 @@
   data-primary="${primary}"
   data-secondary="${secondary}">
 </div>`;
-        codeLibraryFinder.innerText = embedScript;
-      };
+      if (codeLibraryFinder.dataset.highlighted) {
+        delete codeLibraryFinder.dataset.highlighted;
+      }
+      codeLibraryFinder.textContent = embedScript;
+      hljs.highlightBlock(codeLibraryFinder)
+    };
 
-      refreshCode();
-    </script>
+    refreshCode();
+  </script>
+  <script></script>
 
-  </div>
+
 </body>
 
 </html>
