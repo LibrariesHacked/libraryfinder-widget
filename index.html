@@ -46,7 +46,8 @@
 
     <p class="govuk-body" id="main-content">
       A widget is a small component that can be placed on any website. This widget helps users find their nearest public
-      library. The data is provided by the <a class="govuk-link" href="https://www.libraryon.org" target="_blank">LibraryOn API</a>.
+      library. The data is provided by the <a class="govuk-link" href="https://www.libraryon.org"
+        target="_blank">LibraryOn API</a>.
     </p>
     <p class="govuk-body">
       You can either embed the widget as it comes, or customise the width, height, and primary/secondary colours. Once
@@ -259,7 +260,7 @@
       const embedScript = `<script>
   (function () {
     var script = document.createElement('script');
-    script.type = 'text/javascript';
+    script.type = 'module';
     script.async = true;
     script.src = 'https://widget.librarymap.co.uk/libraryfinder-widget.js';
     var firstTag = document.getElementsByTagName('script')[0];
