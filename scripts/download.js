@@ -8,7 +8,6 @@ const servicesFilePath = './data/services.json'
 
 // Documentation for the LibaryOn API is https://libraryon.org/api-docs/v1
 // Library services available at https://api-geography.librarydata.uk/rest/libraryauthorities
-
 const downloadFile = (url, filePath) => {
   get(url, response => {
     let data = ''

@@ -10,6 +10,9 @@ const librarySources = [
   './data/libraries4.json'
 ]
 const libraryDestination = './public/libraries.min.json'
+const individualLibraryDestination = './public/'
+
+const serviceLibrariesDestination = './public/'
 
 const servicesSource = './data/services.json'
 const servicesDestination = './public/services.min.json'
@@ -32,8 +35,8 @@ const processedRegionsData = JSON.stringify(uniqueRegions)
 writeFileSync(regionsDestination, processedRegionsData, 'utf8')
 
 const processedServicesArray = servicesArray.map(item => {
-  const { nice_name: name, region } = item
-  return [name, uniqueRegions.indexOf(region)]
+  const { nice_name: name, code, region } = item
+  return [name, code, uniqueRegions.indexOf(region)]
 })
 
 const processedServicesData = JSON.stringify(processedServicesArray)
@@ -55,3 +58,14 @@ const processedLibraryArray = libraries.map(item => {
 
 const processedLibraryData = JSON.stringify(processedLibraryArray)
 writeFileSync(libraryDestination, processedLibraryData, 'utf8')
+
+servicesArray.forEach((svc, idx) => {
+  const serviceLibraries = processedLibraryArray.filter(lib => lib[2] === idx)
+  serviceLibraries.forEach(lib => lib.splice(2, 1))
+  const processedServiceLibraryData = JSON.stringify(serviceLibraries)
+  writeFileSync(
+    serviceLibrariesDestination + svc.code + '.json',
+    processedServiceLibraryData,
+    'utf8'
+  )
+})
