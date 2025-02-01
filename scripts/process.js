@@ -3,12 +3,7 @@
 
 import { readFileSync, writeFileSync } from 'fs'
 
-const librarySources = [
-  './data/libraries1.json',
-  './data/libraries2.json',
-  './data/libraries3.json',
-  './data/libraries4.json'
-]
+const librarySource = './data/libraries.json'
 const libraryDestination = './public/libraries.min.json'
 const individualLibraryDestination = './public/'
 
@@ -20,10 +15,16 @@ const servicesDestination = './public/services.min.json'
 const regionsDestination = './public/regions.min.json'
 
 const libraries = []
-for (const librarySource of librarySources) {
-  const libraryData = readFileSync(librarySource, 'utf8')
-  const libraryArray = JSON.parse(libraryData).libraries
-  libraries.push(...libraryArray)
+const libraryData = readFileSync(librarySource, 'utf8')
+const libraryArray = JSON.parse(libraryData).data
+// We need to extract the name, library_id, service_id, longitude, and latitude from each item in the array
+for (const item of libraryArray) {
+  const { name, data_entry } = item
+  const { library_id, service_id, longitude, latitude } = data_entry
+  libraries.push({
+    name,
+    data_entry: { library_id, service_id, longitude, latitude }
+  })
 }
 
 const servicesData = readFileSync(servicesSource, 'utf8')
