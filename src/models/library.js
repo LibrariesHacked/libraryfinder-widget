@@ -186,9 +186,15 @@ class Library {
   }
 
   static async getAllLibraries () {
-    const librariesData = fetch('/libraries.min.json')
-    const servicesData = fetch('/services.min.json')
-    const regionsData = fetch('/regions.min.json')
+    const librariesData = fetch(
+      'https://widget.librarymap.co.uk/libraries.min.json'
+    )
+    const servicesData = fetch(
+      'https://widget.librarymap.co.uk//services.min.json'
+    )
+    const regionsData = fetch(
+      'https://widget.librarymap.co.uk//regions.min.json'
+    )
     const [librariesResponse, servicesResponse, regionsResponse] =
       await Promise.all([librariesData, servicesData, regionsData])
 

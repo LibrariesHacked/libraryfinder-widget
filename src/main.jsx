@@ -30,7 +30,7 @@ const theme = createTheme({
       main: container.dataset.primary || '#63117b'
     },
     secondary: {
-      main: container.dataset.secondary || '#f0e7da'
+      main: container.dataset.secondary || '#f6f1e8'
     }
   },
   components: {
