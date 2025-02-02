@@ -86,7 +86,6 @@ const App = ({ width = '100%', height = '500px', service, region }) => {
               padding: theme => theme.spacing(1),
               marginTop: theme => theme.spacing(1),
               borderRadius: theme => theme.shape.borderRadius,
-              border: theme => `1px solid ${theme.palette.divider}`,
               backgroundColor: 'white'
             }}
           >

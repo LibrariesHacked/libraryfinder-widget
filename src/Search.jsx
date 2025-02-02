@@ -43,11 +43,9 @@ const Search = props => {
   const [selectedPlaceName, setSelectedPlaceName] = useState(null)
 
   const loadingProgress = (
-    <>
-      <InputAdornment position='end'>
-        <CircularProgress color='inherit' size={20} />
-      </InputAdornment>
-    </>
+    <InputAdornment position='end'>
+      <CircularProgress color='inherit' />
+    </InputAdornment>
   )
 
   return (
@@ -60,19 +58,22 @@ const Search = props => {
         <TextField
           {...params}
           label='Search by place or postcode'
-          variant='outlined'
-          color='primary'
-          InputProps={{
-            ...params.InputProps,
-            sx: {
-              backgroundColor: 'white'
-            },
-            startAdornment: (
-              <InputAdornment position='start'>
-                <SearchIcon />
-              </InputAdornment>
-            ),
-            endAdornment: <>{loading && loadingProgress}</>
+          variant='filled'
+          slotProps={{
+            input: {
+              ...params.InputProps,
+              sx: {
+                backgroundColor: 'white',
+                borderRadius: theme => theme.shape.borderRadius
+              },
+              startAdornment: (
+                <InputAdornment>
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+              endAdornment: loading && loadingProgress,
+              disableUnderline: true
+            }
           }}
         />
       )}

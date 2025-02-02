@@ -24,8 +24,7 @@ const LibraryList = props => {
       }}
     >
       <ListSubheader key='li_subheader'>
-        {firstSearchCompleted &&
-          `Found ${filteredLibraries.length} nearby libraries`}
+        {firstSearchCompleted && 'Nearby libraries'}
       </ListSubheader>
       {firstSearchCompleted && (
         <>

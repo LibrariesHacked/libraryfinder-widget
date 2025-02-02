@@ -12,8 +12,11 @@ jobs:
       - uses: actions/checkout@v3
       - run: npm install
 
-      - name: download data
-        run: npm run download
+      - name: download libraries data using curl
+        run: curl -o data/libraries.json "https://libraryon.org/cms/api/libraries?pagination[page]=1&pagination[pageSize]=10000&fields=*&populate[services][populate]=*&populate[authority][fields][0]=slug&populate[authority][fields][1]=name&populate[authority][fields][2]=authorityID" -g -H "${{ secrets.LIBRARYON_API_HEADER }}
+
+      - name: download services data using curl
+        run: curl -o data/services.json "https://api-geography.librarydata.uk/rest/libraryauthorities"
 
       - name: process the data
         run: npm run process

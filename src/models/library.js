@@ -1,6 +1,7 @@
 class Library {
   constructor (
     name,
+    slug,
     isCollected,
     previousId,
     libraryId,
@@ -12,18 +13,19 @@ class Library {
     coLocated,
     coLocatedWith,
     email,
-    latitude,
     longitude,
+    latitude,
     notes,
     statutory,
     typeOfLibrary,
     uprn,
-    uprnLatitude,
     uprnLongitude,
+    uprnLatitude,
     yearClosed,
     yearOpened,
     serviceName,
     serviceId,
+    serviceSlug,
     regionName,
     libraryUrl,
     openDays,
@@ -43,6 +45,7 @@ class Library {
     unstaffedSundayTime
   ) {
     this.name = name
+    this.slug = slug
     this.isCollected = isCollected
     this.previousId = previousId
     this.libraryId = libraryId
@@ -54,18 +57,19 @@ class Library {
     this.coLocated = coLocated
     this.coLocatedWith = coLocatedWith
     this.email = email
-    this.latitude = latitude
     this.longitude = longitude
+    this.latitude = latitude
     this.notes = notes
     this.statutory = statutory
     this.typeOfLibrary = typeOfLibrary
     this.uprn = uprn
-    this.uprnLatitude = uprnLatitude
     this.uprnLongitude = uprnLongitude
+    this.uprnLatitude = uprnLatitude
     this.yearClosed = yearClosed
     this.yearOpened = yearOpened
     this.serviceName = serviceName
     this.serviceId = serviceId
+    this.serviceSlug = serviceSlug
     this.regionName = regionName
     this.libraryUrl = libraryUrl
     this.openDays = openDays
@@ -88,6 +92,7 @@ class Library {
   static fromMinifiedArray (array, services, regions) {
     return new Library(
       array[1],
+      array[2],
       null,
       null,
       array[0],
@@ -100,7 +105,7 @@ class Library {
       null,
       null,
       array[4],
-      array[3],
+      array[5],
       null,
       null,
       null,
@@ -109,9 +114,10 @@ class Library {
       null,
       null,
       null,
-      services[array[2]][0],
-      null,
-      regions[services[array[2]][1]],
+      services[array[3]][0],
+      services[array[3]][1],
+      services[array[3]][2],
+      regions[services[array[3]][3]],
       null,
       null,
       null,
@@ -134,6 +140,7 @@ class Library {
   static fromJson (json) {
     return new Library(
       json.name,
+      json.slug,
       json.isCollected,
       json.previous_id,
       json.library_id,
@@ -157,6 +164,7 @@ class Library {
       json.year_opened,
       json.service_name,
       json.service_id,
+      json.service_slug,
       json.region_name,
       json.library_url,
       json.open_days,
@@ -182,10 +190,10 @@ class Library {
       'https://widget.librarymap.co.uk/libraries.min.json'
     )
     const servicesData = fetch(
-      'https://widget.librarymap.co.uk/services.min.json'
+      'https://widget.librarymap.co.uk//services.min.json'
     )
     const regionsData = fetch(
-      'https://widget.librarymap.co.uk/regions.min.json'
+      'https://widget.librarymap.co.uk//regions.min.json'
     )
     const [librariesResponse, servicesResponse, regionsResponse] =
       await Promise.all([librariesData, servicesData, regionsData])
