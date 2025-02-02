@@ -17,7 +17,7 @@ const LibraryListItem = props => {
       <ListItem disablePadding>
         <ListItemButton
           component='a'
-          href={`https://libraryon.org/library/service/${library.name}?id=${library.libraryId}`}
+          href={`https://libraryon.org/libraries/${library.serviceSlug}/${library.slug}`}
           sx={{ width: '100%' }}
           target='_blank'
         >
@@ -47,7 +47,9 @@ LibraryListItem.propTypes = {
   library: PropTypes.shape({
     libraryId: PropTypes.number,
     name: PropTypes.string,
-    distance: PropTypes.number
+    distance: PropTypes.number,
+    serviceSlug: PropTypes.string,
+    slug: PropTypes.string
   }).isRequired
 }
 

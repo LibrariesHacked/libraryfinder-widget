@@ -62,17 +62,23 @@ const Search = props => {
           label='Search by place or postcode'
           variant='outlined'
           color='primary'
-          InputProps={{
-            ...params.InputProps,
-            sx: {
-              backgroundColor: 'white'
+          slotProps={{
+            inputLabel: {
+              shrink: true
             },
-            startAdornment: (
-              <InputAdornment position='start'>
-                <SearchIcon />
-              </InputAdornment>
-            ),
-            endAdornment: <>{loading && loadingProgress}</>
+            input: {
+              ...params.InputProps,
+              sx: {
+                backgroundColor: 'white',
+                borderRadius: theme => theme.shape.borderRadius
+              },
+              startAdornment: (
+                <InputAdornment position='start'>
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+              endAdornment: <>{loading && loadingProgress}</>
+            }
           }}
         />
       )}
