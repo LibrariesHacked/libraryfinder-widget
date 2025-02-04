@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
-import LibraryListItem from './LibraryListItem'
 import ListSubheader from '@mui/material/ListSubheader'
+
+import LibraryListItem from './LibraryListItem'
 
 const LibraryList = props => {
   const { libraries, firstSearchCompleted } = props

@@ -9,6 +9,7 @@ export default defineConfig({
       output: {
         entryFileNames: 'libraryfinder-widget.js'
       },
+      treeshake: true,
       external: ['/govuk-frontend-5.4.0.min.js?url']
     }
   }

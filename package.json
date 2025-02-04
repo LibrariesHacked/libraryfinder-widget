@@ -10,8 +10,6 @@
     "preview": "vite preview",
     "predeploy": "vite build",
     "deploy": "gh-pages -d dist",
-    "sitemap": "node ./src/sitemap.js",
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "download": "node ./scripts/download.js",
     "process": "node ./scripts/process.js"
   },

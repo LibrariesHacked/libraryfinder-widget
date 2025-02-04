@@ -64,12 +64,15 @@ class PlaceName {
     if (localTypes && localTypes.length > 0) {
       url += `?types[]=${localTypes.join('&types[]=')}`
     }
-    const response = await fetch(url)
+    const response = await fetch(url, {
+      method: 'GET',
+      signal
+    })
     const data = await response.json()
     return data.map(PlaceName.fromJson)
   }
 
-  static async findByName (name) {
+  static async findByName (name, signal) {
     const response = await fetch(
       `https://api-geography.librarydata.uk/rest/placenames/${name}`,
       {

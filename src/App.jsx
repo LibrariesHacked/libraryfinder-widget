@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import Box from '@mui/material/Box'
-import Header from './Header'
-import Search from './Search'
-import LibraryList from './LibraryList'
 import LinearProgress from '@mui/material/LinearProgress'
+import ScopedCssBaseline from '@mui/material/ScopedCssBaseline'
+
 import Footer from './Footer'
+import Header from './Header'
+import LibraryList from './LibraryList'
+import Search from './Search'
 
 import WebFont from 'webfontloader'
 
 import useLibraries from './hooks/useLibraries'
-
-import ScopedCssBaseline from '@mui/material/ScopedCssBaseline'
 
 const App = ({ width = '100%', height = '500px', service, region }) => {
   const [firstSearchCompleted, setFirstSearchCompleted] = useState(false)

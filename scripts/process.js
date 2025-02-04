@@ -5,7 +5,6 @@ import { readFileSync, writeFileSync } from 'fs'
 
 const librarySource = './data/libraries.json'
 const libraryDestination = './public/libraries.min.json'
-const individualLibraryDestination = './public/'
 
 const serviceLibrariesDestination = './public/'
 
