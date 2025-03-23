@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import ListItemButton from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
@@ -41,16 +40,6 @@ const LibraryListItem = props => {
       <Divider />
     </>
   )
-}
-
-LibraryListItem.propTypes = {
-  library: PropTypes.shape({
-    libraryId: PropTypes.number,
-    name: PropTypes.string,
-    distance: PropTypes.number,
-    serviceSlug: PropTypes.string,
-    slug: PropTypes.string
-  }).isRequired
 }
 
 export default LibraryListItem

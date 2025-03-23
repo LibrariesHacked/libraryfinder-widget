@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React, { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
 
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
@@ -59,8 +59,8 @@ const theme = createTheme({
   }
 })
 
-ReactDOM.createRoot(shadowRootElement).render(
-  <React.StrictMode>
+createRoot(shadowRootElement).render(
+  <StrictMode>
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>
         <App
@@ -69,5 +69,5 @@ ReactDOM.createRoot(shadowRootElement).render(
         />
       </ThemeProvider>
     </CacheProvider>
-  </React.StrictMode>
+  </StrictMode>
 )
