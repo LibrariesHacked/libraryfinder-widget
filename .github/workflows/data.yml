@@ -13,7 +13,7 @@ jobs:
       - run: npm install
 
       - name: download libraries data using curl
-        run: curl -o data/libraries.json "https://libraryon.org/cms/api/libraries?pagination[page]=1&pagination[pageSize]=10000&fields=*&populate[services][populate]=*&populate[authority][fields][0]=slug&populate[authority][fields][1]=name&populate[authority][fields][2]=authorityID" -g -H "${{ secrets.LIBRARYON_API_HEADER }}"
+        run: curl -o data/libraries.json "https://libraryon.org/cms/api/libraries?pagination[page]=1&pagination[pageSize]=10000&fields=*&populate[services][populate]=*&populate[authority][fields][0]=slug&populate[authority][fields][1]=name&populate[authority][fields][2]=authorityID" -g
 
       - name: download services data using curl
         run: curl -o data/services.json "https://api-geography.librarydata.uk/rest/libraryauthorities"
@@ -36,7 +36,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git diff-index --quiet HEAD || git commit -m "Auto update of data files"
+          git diff-index --quiet HEAD || git commit -m "Auto update of data"
 
       - name: fetch from main
         run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 
 import Box from '@mui/material/Box'
 import LinearProgress from '@mui/material/LinearProgress'
@@ -106,13 +105,6 @@ const App = ({ width = '100%', height = '500px', service, region }) => {
       </ScopedCssBaseline>
     </Box>
   )
-}
-
-App.propTypes = {
-  width: PropTypes.string,
-  height: PropTypes.string,
-  service: PropTypes.string,
-  region: PropTypes.string
 }
 
 export default App

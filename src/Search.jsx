@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 
 import Autocomplete from '@mui/material/Autocomplete'
 import Box from '@mui/material/Box'
@@ -44,7 +43,7 @@ const Search = props => {
 
   const loadingProgress = (
     <InputAdornment position='end'>
-      <CircularProgress color='inherit' />
+      <CircularProgress color='inherit' size={18} />
     </InputAdornment>
   )
 
@@ -120,12 +119,6 @@ const Search = props => {
       value={selectedPlaceName}
     />
   )
-}
-
-Search.propTypes = {
-  refreshLibraryList: PropTypes.func.isRequired,
-  service: PropTypes.string,
-  region: PropTypes.string
 }
 
 export default Search

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -46,16 +45,6 @@ const LibraryList = props => {
       )}
     </List>
   )
-}
-
-LibraryList.propTypes = {
-  libraries: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string
-    })
-  ).isRequired,
-  firstSearchCompleted: PropTypes.bool.isRequired
 }
 
 export default LibraryList
