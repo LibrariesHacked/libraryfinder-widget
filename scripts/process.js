@@ -28,7 +28,8 @@ for (const item of libraryArray) {
     yearClosed === null &&
     coordinates &&
     authorityID &&
-    authorityID.indexOf('N') === -1
+    authorityID.indexOf('N') === -1 &&
+    authorityID !== 'authority'
   ) {
     libraries.push({
       name,
