@@ -51,14 +51,22 @@ const uniqueRegions = [...new Set(processedRegionsArray)]
 const processedRegionsData = JSON.stringify(uniqueRegions)
 writeFileSync(regionsDestination, processedRegionsData, 'utf8')
 
-const processedServicesArray = servicesArray.map(item => {
+let processedServicesArray = servicesArray.map(item => {
   const { nice_name: name, code, region } = item
   // Find the first service slug from the libraries array where the authority ID matches the code
   const serviceSlug = libraries.find(
     library => library.serviceId === code
-  ).serviceSlug
-  return [name, code, serviceSlug, uniqueRegions.indexOf(region)]
+  )?.serviceSlug
+  // If no service slug is found, use the code as the service slug
+  if (serviceSlug) {
+    return [name, code, serviceSlug, uniqueRegions.indexOf(region)]
+  }
 })
+
+// Remove any undefined values from the processedServicesArray
+processedServicesArray = processedServicesArray.filter(
+  item => item !== undefined
+)
 
 const processedServicesData = JSON.stringify(processedServicesArray)
 writeFileSync(servicesDestination, processedServicesData, 'utf8')
