@@ -1,270 +1,346 @@
 <!DOCTYPE html>
 <html lang="en" class="govuk-template">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library finder widget</title>
+    <link rel="stylesheet" href="/govuk-frontend-5.4.0.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"
+    />
+    <style></style>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Library finder widget</title>
-  <link rel="stylesheet" href="/govuk-frontend-5.4.0.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/default.min.css" />
-  <style></style>
-</head>
-
-<body class="govuk-template__body">
-  <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
-  <header class="govuk-header" data-module="govuk-header">
-    <div class="govuk-header__container govuk-width-container">
-      <div class="govuk-header__logo">
-        <a href="/" class="govuk-header__link govuk-header__link--homepage">
-          Library finder
-        </a>
+  <body class="govuk-template__body">
+    <a
+      href="#main-content"
+      class="govuk-skip-link"
+      data-module="govuk-skip-link"
+      >Skip to main content</a
+    >
+    <header class="govuk-header" data-module="govuk-header">
+      <div class="govuk-header__container govuk-width-container">
+        <div class="govuk-header__logo">
+          <a href="/" class="govuk-header__link govuk-header__link--homepage">
+            Library finder
+          </a>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <div class="govuk-width-container">
-    <div class="govuk-phase-banner">
-      <p class="govuk-phase-banner__content">
-        <strong class="govuk-tag govuk-phase-banner__content__tag">
-          Prototype
-        </strong>
-        <span class="govuk-phase-banner__text">
-          This is a new service. Help us improve it and
-          <a class="govuk-link" href="mailto:info@librarieshacked.org">give your feedback by email</a>.
-        </span>
+    <div class="govuk-width-container">
+      <div class="govuk-phase-banner">
+        <p class="govuk-phase-banner__content">
+          <strong class="govuk-tag govuk-phase-banner__content__tag">
+            Prototype
+          </strong>
+          <span class="govuk-phase-banner__text">
+            This is a new service. Help us improve it and
+            <a class="govuk-link" href="mailto:info@librarieshacked.org"
+              >give your feedback by email</a
+            >.
+          </span>
+        </p>
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m" />
+
+      <span class="govuk-caption-l">Add a library finder to your website</span>
+      <h1 class="govuk-heading-l">Library finder instructions</h1>
+
+      <p class="govuk-body" id="main-content">
+        A widget is a small component that can be placed on any website. This
+        widget helps users find their nearest public library.
       </p>
-    </div>
+      <p class="govuk-body">
+        You can either embed the widget as it comes, or customise the width,
+        height, and primary/secondary colours. Once you are done with
+        customisations, refresh and copy the code at the bottom of the page, to
+        paste into your website's HTML.
+      </p>
+      <p class="govuk-body">
+        If you have any problems, or would like to give feedback, please
+        <a class="govuk-link" href="mailto:info@librarieshacked.org"
+          >get in touch</a
+        >.
+      </p>
 
-    <hr class="govuk-section-break govuk-section-break--m" />
+      <hr
+        class="govuk-section-break govuk-section-break--m govuk-section-break--visible"
+      />
 
-    <span class="govuk-caption-l">Add a library finder to your website</span>
-    <h1 class="govuk-heading-l">Library finder instructions</h1>
+      <span class="govuk-caption-l">See it in action</span>
+      <h2 class="govuk-heading-l">Demo</h2>
 
-    <p class="govuk-body" id="main-content">
-      A widget is a small component that can be placed on any website. This
-      widget helps users find their nearest public library.
-    </p>
-    <p class="govuk-body">
-      You can either embed the widget as it comes, or customise the width,
-      height, and primary/secondary colours. Once you are done with
-      customisations, refresh and copy the code at the bottom of the page, to
-      paste into your website's HTML.
-    </p>
-    <p class="govuk-body">
-      If you have any problems, or would like to give feedback, please
-      <a class="govuk-link" href="mailto:info@librarieshacked.org">get in touch</a>.
-    </p>
+      <p class="govuk-body">
+        The demo shows the widget with the default colours and a width of 320px
+        and a height of 500px.
+      </p>
 
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+      <script>
+        document.body.className +=
+          ' js-enabled' +
+          ('noModule' in HTMLScriptElement.prototype
+            ? ' govuk-frontend-supported'
+            : '')
+      </script>
 
-    <span class="govuk-caption-l">See it in action</span>
-    <h2 class="govuk-heading-l">Demo</h2>
+      <div
+        id="libraryfinder-widget"
+        data-width="320px"
+        data-height="500px"
+        data-primary="#63117b"
+        data-secondary="#f0e7da"
+        data-service=""
+        data-region=""
+      ></div>
 
-    <p class="govuk-body">
-      The demo shows the widget with the default colours and a width of 320px
-      and a height of 500px.
-    </p>
+      <hr
+        class="govuk-section-break govuk-section-break--m govuk-section-break--visible"
+      />
 
-    <script>
-      document.body.className +=
-        ' js-enabled' +
-        ('noModule' in HTMLScriptElement.prototype
-          ? ' govuk-frontend-supported'
-          : '')
-    </script>
+      <span class="govuk-caption-l">Make it work for your website</span>
+      <h2 class="govuk-heading-l">Customisation</h2>
 
-    <div id="libraryfinder-widget" data-width="320px" data-height="500px" data-primary="#63117b"
-      data-secondary="#f0e7da" data-service="" data-region=""></div>
+      <p class="govuk-body">
+        After you have made your customisations for size and colours, click the
+        'Refresh code' button to update the code snippet at the bottom of the
+        page.
+      </p>
 
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+      <div
+        class="govuk-accordion"
+        data-module="govuk-accordion"
+        id="accordion-default"
+      >
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h3 class="govuk-accordion__section-heading">
+              <span
+                class="govuk-accordion__section-button"
+                id="accordion-default-heading-1"
+              >
+                Size
+              </span>
+            </h3>
+          </div>
+          <div
+            id="accordion-default-content-1"
+            class="govuk-accordion__section-content"
+          >
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h4 class="govuk-fieldset__heading">
+                  Set the width and height
+                </h4>
+              </legend>
 
-    <span class="govuk-caption-l">Make it work for your website</span>
-    <h2 class="govuk-heading-l">Customisation</h2>
+              <p class="govuk-body">
+                By default the widget will be 100% width (filling whatever
+                container it is placed in), and 500px high. You can adjust these
+                values below. It is not recommended to go below 320px in width
+                or 500px in height.
+              </p>
 
-    <p class="govuk-body">
-      After you have made your customisations for size and colours, click the
-      'Refresh code' button to update the code snippet at the bottom of the
-      page.
-    </p>
+              <div class="govuk-form-group">
+                <h4 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--2" for="width">
+                    What is the width in pixels?
+                  </label>
+                  <div id="width-hint" class="govuk-hint">
+                    For example, enter 400 for 400px
+                  </div>
+                </h4>
+                <div class="govuk-input__wrapper">
+                  <input
+                    class="govuk-input govuk-input--width-4"
+                    id="width"
+                    name="width"
+                    type="text"
+                    spellcheck="false"
+                  />
+                  <div class="govuk-input__suffix" aria-hidden="true">px</div>
+                </div>
+              </div>
 
-    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h3 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Size
-            </span>
-          </h3>
+              <div class="govuk-form-group">
+                <h4 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--2" for="height">
+                    What is the height in pixels?
+                  </label>
+                  <div id="height-hint" class="govuk-hint">
+                    For example, enter 500 for 500px
+                  </div>
+                </h4>
+                <div class="govuk-input__wrapper">
+                  <input
+                    class="govuk-input govuk-input--width-4"
+                    id="height"
+                    name="height"
+                    type="text"
+                    spellcheck="false"
+                  />
+                  <div class="govuk-input__suffix" aria-hidden="true">px</div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
         </div>
-        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h4 class="govuk-fieldset__heading">
-                Set the width and height
-              </h4>
-            </legend>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h3 class="govuk-accordion__section-heading">
+              <span
+                class="govuk-accordion__section-button"
+                id="accordion-default-heading-2"
+              >
+                Colours
+              </span>
+            </h3>
+          </div>
+          <div
+            id="accordion-default-content-2"
+            class="govuk-accordion__section-content"
+          >
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h4 class="govuk-fieldset__heading">
+                  Set a primary and secondary colour
+                </h4>
+              </legend>
 
-            <p class="govuk-body">
-              By default the widget will be 100% width (filling whatever
-              container it is placed in), and 500px high. You can adjust these
-              values below. It is not recommended to go below 320px in width
-              or 500px in height.
-            </p>
-
-            <div class="govuk-form-group">
-              <h4 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--2" for="width">
-                  What is the width in pixels?
-                </label>
-                <div id="width-hint" class="govuk-hint">
-                  For example, enter 400 for 400px
+              <div class="govuk-form-group">
+                <h4 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--2" for="primary">
+                    What is the primary colour?
+                  </label>
+                  <div id="primary-hint" class="govuk-hint">
+                    Use the colour picker to select a colour that will be used
+                    for the main elements of the widget
+                  </div>
+                </h4>
+                <div class="govuk-input__wrapper">
+                  <input
+                    class="govuk-input govuk-input--width-5"
+                    id="primary"
+                    name="primary"
+                    type="color"
+                    spellcheck="false"
+                    value="#63117b"
+                  />
                 </div>
-              </h4>
-              <div class="govuk-input__wrapper">
-                <input class="govuk-input govuk-input--width-4" id="width" name="width" type="text"
-                  spellcheck="false" />
-                <div class="govuk-input__suffix" aria-hidden="true">px</div>
               </div>
-            </div>
 
-            <div class="govuk-form-group">
-              <h4 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--2" for="height">
-                  What is the height in pixels?
-                </label>
-                <div id="height-hint" class="govuk-hint">
-                  For example, enter 500 for 500px
+              <div class="govuk-form-group">
+                <h3 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--2" for="secondary">
+                    What is the secondary colour?
+                  </label>
+                  <div id="secondary-hint" class="govuk-hint">
+                    Use the colour picker to select a colour that will be used
+                    for secondary elements of the widget
+                  </div>
+                </h3>
+                <div class="govuk-input__wrapper">
+                  <input
+                    class="govuk-input govuk-input--width-5"
+                    id="secondary"
+                    name="secondary"
+                    type="color"
+                    spellcheck="false"
+                    value="#f6f1e8"
+                  />
                 </div>
-              </h4>
-              <div class="govuk-input__wrapper">
-                <input class="govuk-input govuk-input--width-4" id="height" name="height" type="text"
-                  spellcheck="false" />
-                <div class="govuk-input__suffix" aria-hidden="true">px</div>
               </div>
-            </div>
-          </fieldset>
+            </fieldset>
+          </div>
         </div>
       </div>
-      <div class="govuk-accordion__section">
-        <div class="govuk-accordion__section-header">
-          <h3 class="govuk-accordion__section-heading">
-            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
-              Colours
-            </span>
-          </h3>
-        </div>
-        <div id="accordion-default-content-2" class="govuk-accordion__section-content">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h4 class="govuk-fieldset__heading">
-                Set a primary and secondary colour
-              </h4>
-            </legend>
 
-            <div class="govuk-form-group">
-              <h4 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--2" for="primary">
-                  What is the primary colour?
-                </label>
-                <div id="primary-hint" class="govuk-hint">
-                  Use the colour picker to select a colour that will be used
-                  for the main elements of the widget
-                </div>
-              </h4>
-              <div class="govuk-input__wrapper">
-                <input class="govuk-input govuk-input--width-5" id="primary" name="primary" type="color"
-                  spellcheck="false" value="#63117b" />
-              </div>
-            </div>
+      <span class="govuk-caption-l">Take a copy of your embed code</span>
+      <h1 class="govuk-heading-l">Code</h1>
 
-            <div class="govuk-form-group">
-              <h3 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--2" for="secondary">
-                  What is the secondary colour?
-                </label>
-                <div id="secondary-hint" class="govuk-hint">
-                  Use the colour picker to select a colour that will be used
-                  for secondary elements of the widget
-                </div>
-              </h3>
-              <div class="govuk-input__wrapper">
-                <input class="govuk-input govuk-input--width-5" id="secondary" name="secondary" type="color"
-                  spellcheck="false" value="#f6f1e8" />
-              </div>
-            </div>
-          </fieldset>
-        </div>
-      </div>
-    </div>
+      <a
+        id="btn_refreshcode"
+        href="#"
+        role="button"
+        draggable="false"
+        class="govuk-button govuk-button--start"
+        data-module="govuk-button"
+      >
+        Refresh code
+      </a>
 
-    <span class="govuk-caption-l">Take a copy of your embed code</span>
-    <h1 class="govuk-heading-l">Code</h1>
-
-    <a id="btn_refreshcode" href="#" role="button" draggable="false" class="govuk-button govuk-button--start"
-      data-module="govuk-button">
-      Refresh code
-    </a>
-
-    <pre>
+      <pre>
       <code id="code_libraryfinder" class="language-html"></code>
     </pre>
-  </div>
+    </div>
 
-  <footer class="govuk-footer">
-    <div class="govuk-width-container">
-      <div class="govuk-footer__meta">
-        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-          <span class="govuk-footer__licence-description">
-            All widget code is open source under the
-            <a class="govuk-footer__link"
-              href="https://github.com/LibrariesHacked/libraryfinder-widget/blob/main/LICENSE" rel="license">MIT
-              Licence</a>
-            and can be found on
-            <a class="govuk-footer__link" href="https://github.com/LibrariesHacked/libraryfinder-widget/">GitHub</a>
-          </span>
+    <footer class="govuk-footer">
+      <div class="govuk-width-container">
+        <div class="govuk-footer__meta">
+          <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+            <span class="govuk-footer__licence-description">
+              All widget code is open source under the
+              <a
+                class="govuk-footer__link"
+                href="https://github.com/LibrariesHacked/libraryfinder-widget/blob/main/LICENSE"
+                rel="license"
+                >MIT Licence</a
+              >
+              and can be found on
+              <a
+                class="govuk-footer__link"
+                href="https://github.com/LibrariesHacked/libraryfinder-widget/"
+                >GitHub</a
+              >
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script type="module" src="/src/main.jsx"></script>
-  <script type="module" src="/govuk-frontend-5.4.0.min.js"></script>
-  <script type="module">
-    import { initAll } from '/govuk-frontend-5.4.0.min.js?url'
-    initAll()
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"
-    integrity="sha512-6yoqbrcLAHDWAdQmiRlHG4+m0g/CT/V9AGyxabG8j7Jk8j3r3K6due7oqpiRMZqcYe9WM2gPcaNNxnl2ux+3tA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script type="text/javascript">
-    const defaultWidth = '100%'
-    const defaultHeight = '500px'
-    const defaultPrimary = '#632279'
-    const defaultSecondary = '#f8ab89'
+    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/govuk-frontend-5.4.0.min.js"></script>
+    <script type="module">
+      import { initAll } from '/govuk-frontend-5.4.0.min.js?url'
+      initAll()
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"
+      integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="text/javascript">
+      const defaultWidth = '100%'
+      const defaultHeight = '500px'
+      const defaultPrimary = '#632279'
+      const defaultSecondary = '#f8ab89'
 
-    const libraryFinderWidget = document.getElementById(
-      'libraryfinder-widget'
-    )
-    const refreshCodeButton = document.getElementById('btn_refreshcode')
-    const codeLibraryFinder = document.getElementById('code_libraryfinder')
+      const libraryFinderWidget = document.getElementById(
+        'libraryfinder-widget'
+      )
+      const refreshCodeButton = document.getElementById('btn_refreshcode')
+      const codeLibraryFinder = document.getElementById('code_libraryfinder')
 
-    refreshCodeButton.addEventListener('click', event => {
-      event.preventDefault()
-      refreshCode()
-    })
+      refreshCodeButton.addEventListener('click', event => {
+        event.preventDefault()
+        refreshCode()
+      })
 
-    const refreshCode = () => {
-      const customWidth = document.getElementById('width').value
-      const customHeight = document.getElementById('height').value
-      const customPrimary = document.getElementById('primary').value
-      const customSecondary = document.getElementById('secondary').value
+      const refreshCode = () => {
+        const customWidth = document.getElementById('width').value
+        const customHeight = document.getElementById('height').value
+        const customPrimary = document.getElementById('primary').value
+        const customSecondary = document.getElementById('secondary').value
 
-      const width = customWidth ? customWidth + 'px' : defaultWidth
-      const height = customHeight ? customHeight + 'px' : defaultHeight
-      const primary = customPrimary || defaultPrimary
-      const secondary = customSecondary || defaultSecondary
+        const width = customWidth ? customWidth + 'px' : defaultWidth
+        const height = customHeight ? customHeight + 'px' : defaultHeight
+        const primary = customPrimary || defaultPrimary
+        const secondary = customSecondary || defaultSecondary
 
-      const embedScript = `<script>
+        const embedScript = `<script>
   (function () {
     var script = document.createElement('script');
     script.type = 'module';
@@ -280,16 +356,15 @@
   data-primary="${primary}"
   data-secondary="${secondary}">
 </div>`
-      if (codeLibraryFinder.dataset.highlighted) {
-        delete codeLibraryFinder.dataset.highlighted
+        if (codeLibraryFinder.dataset.highlighted) {
+          delete codeLibraryFinder.dataset.highlighted
+        }
+        codeLibraryFinder.textContent = embedScript
+        hljs.highlightBlock(codeLibraryFinder)
       }
-      codeLibraryFinder.textContent = embedScript
-      hljs.highlightBlock(codeLibraryFinder)
-    }
 
-    refreshCode()
-  </script>
-  <script></script>
-</body>
-
+      refreshCode()
+    </script>
+    <script></script>
+  </body>
 </html>
