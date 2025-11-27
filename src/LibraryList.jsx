@@ -39,7 +39,7 @@ const LibraryList = props => {
       {!firstSearchCompleted && (
         <ListItem>
           <ListItemText>
-            Search for your location to find local libraries
+            Search for a location to find local libraries
           </ListItemText>
         </ListItem>
       )}

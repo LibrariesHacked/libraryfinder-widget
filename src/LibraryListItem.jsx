@@ -24,7 +24,7 @@ const LibraryListItem = props => {
             primary={library.name}
             secondary={
               <>
-                {`${metresToMiles(library.distance, 1)} miles`}
+                {`${metresToMiles(library.distance, 1)} miles away`}
                 <RouteIcon
                   fontSize='small'
                   sx={{
@@ -37,7 +37,7 @@ const LibraryListItem = props => {
           />
         </ListItemButton>
       </ListItem>
-      <Divider />
+      <Divider sx={{ marginX: theme => theme.spacing(6) }} />
     </>
   )
 }
